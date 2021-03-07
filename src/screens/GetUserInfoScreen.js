@@ -126,6 +126,7 @@ const styles = StyleSheet.create({
     width: "60%",
     height: "10%",
     backgroundColor: colors.lightBlue_button,
+    borderRadius: 30,
   },
   button: {
     fontSize: 25,
