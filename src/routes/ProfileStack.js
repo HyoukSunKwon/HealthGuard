@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import ProfileScreen from "../screens/ProfileScreen";
 import HomeScreen from "../screens/HomeScreen";
 import SignUpScreen from "../screens/SignUpScreen";
+import EditScreen from "../screens/EditProfileScreen";
 import colors from "../config/colors";
 
 const Stack = createStackNavigator();
@@ -26,9 +27,14 @@ const ProfileStack = () => {
         options={{ title: "Home" }}
       />
       <Stack.Screen
-        name="Sign Up"
+        name="SignUpScreen"
         component={SignUpScreen}
         options={{ title: "Sign Up" }}
+      />
+      <Stack.Screen
+        name="EditProfileScreen"
+        component={EditScreen}
+        options={{ title: "Edit Profile" }}
       />
     </Stack.Navigator>
   );
