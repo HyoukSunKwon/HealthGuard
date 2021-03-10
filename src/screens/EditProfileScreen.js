@@ -1,15 +1,12 @@
 import React from "react";
-import { Image, StyleSheet, View, Text, SafeAreaView } from "react-native";
+import { StyleSheet, View, Text, SafeAreaView } from "react-native";
 
-import { AuthContext } from "../config/context";
 import screenConfig from "../config/screen";
 import colors from "../config/colors";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import DropDownPicker from "react-native-dropdown-picker";
 
 const ProfileScreen = ({ navigation }) => {
-  const { signOut, signUp } = React.useContext(AuthContext);
-
   let dayArr = [];
 
   for (let i = 1; i <= 31; i++) {
@@ -45,26 +42,6 @@ const ProfileScreen = ({ navigation }) => {
 
   return (
     <SafeAreaView style={screenConfig.container}>
-      <Image
-        resizeMode="contain"
-        style={screenConfig.logoImage}
-        source={require("../../assets/icon.png")}
-      />
-      {/* <TouchableOpacity onPress={() => signUp()}>
-        <Text style={styles.textCreate}> Wanna create an account? </Text>
-      </TouchableOpacity> */}
-
-      <View style={styles.buttonContainer}>
-        <View style={styles.button}>
-          <TouchableOpacity
-            onPress={() =>
-              navigation.navigate("EditProfileScreen", { name: "Edit Profile" })
-            }
-          >
-            <Text style={styles.buttonText}>Edit Profile</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
       <View style={styles.formContainer}>
         <View style={styles.fieldContainer}>
           <Text style={styles.Datetext}>Date of Birth</Text>
@@ -108,31 +85,20 @@ const ProfileScreen = ({ navigation }) => {
       </View>
       <View style={styles.buttonContainer}>
         <View style={styles.button}>
-          <TouchableOpacity onPress={() => signOut()}>
-            <Text style={styles.buttonText}>Sign Out</Text>
+          <TouchableOpacity onPress={() => console.log("Save Press")}>
+            <Text style={styles.buttonText}>Save Profile</Text>
           </TouchableOpacity>
         </View>
-        {/* <View style={styles.button}>
-          <TouchableOpacity onPress={() => console.log("Delete Press")}>
-            <Text style={styles.buttonText}>Delete Account</Text>
-          </TouchableOpacity>
-        </View> */}
       </View>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  box: {
-    height: 40,
-    width: "80%",
-    borderColor: colors.darkBlue,
-    borderWidth: 1,
-  },
   button: {
     backgroundColor: colors.lightBlue_button,
     width: "70%",
-    height: "25%",
+    height: "20%",
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 10,
@@ -143,6 +109,7 @@ const styles = StyleSheet.create({
     marginLeft: "25%",
     flexDirection: "column",
     height: "30%",
+    bottom: 40,
   },
   buttonText: {
     fontSize: 18,
@@ -151,16 +118,14 @@ const styles = StyleSheet.create({
     fontSize: 18,
     top: 55,
   },
-  textCreate: {
-    textAlign: "center",
-    color: colors.darkBlue,
-  },
   fieldContainer: {
     marginLeft: "3%",
+    marginTop: "5%",
   },
   formContainer: {
     flex: 1,
     bottom: 60,
+    marginTop: "15%",
   },
   makeRow: {
     flexDirection: "row",
