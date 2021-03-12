@@ -4,7 +4,7 @@ import { Table, Row, Rows } from "react-native-table-component";
 
 import colors from "../config/colors";
 
-const HistoryScreen = () => {
+const HistoryScreen = ({ navigation }) => {
   const tableHead = ["Type", "Name", "Date", "Notes"];
   const tableData = [
     ["Covid-19", "Moderna", "13/3/2021", "Next does in date: 30-Mar-2021"],
@@ -15,7 +15,12 @@ const HistoryScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.buttonRow}>
-        <TouchableOpacity style={styles.buttonContainer}>
+        <TouchableOpacity
+          style={styles.buttonContainer}
+          onPress={() =>
+            navigation.navigate("AddHistoryScreen", { name: "Add History" })
+          }
+        >
           <Text>Add</Text>
         </TouchableOpacity>
 
