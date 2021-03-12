@@ -1,8 +1,8 @@
 import React from "react";
 import { Image, StyleSheet, View, Text, TouchableOpacity } from "react-native";
 
-import colors from "../config/colors";
-import screenConfig from "../config/screen";
+import colors from "../../config/colors";
+import screenConfig from "../../config/screen";
 
 const HomeScreen = ({ navigation }) => {
   return (
@@ -10,7 +10,7 @@ const HomeScreen = ({ navigation }) => {
       <Image
         resizeMode="contain"
         style={screenConfig.logoImage}
-        source={require("../../assets/welcome-bg.jpg")}
+        source={require("../../../assets/welcome-bg.jpg")}
       />
       <View style={styles.buttonContainter}>
         <View style={styles.button}>

@@ -8,9 +8,9 @@ import {
   TextInput,
 } from "react-native";
 
-import { AuthContext } from "../config/context";
-import colors from "../config/colors";
-import screenConfig from "../config/screen";
+import { AuthContext } from "../../config/context";
+import colors from "../../config/colors";
+import screenConfig from "../../config/screen";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 const SignInScreen = ({ navigation }) => {
@@ -20,7 +20,7 @@ const SignInScreen = ({ navigation }) => {
       <Image
         resizeMode="contain"
         style={screenConfig.logoImage}
-        source={require("../../assets/icon.png")}
+        source={require("../../../assets/icon.png")}
       />
       <View style={styles.formContainer}>
         <View style={styles.fieldContainer}>

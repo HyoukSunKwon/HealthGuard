@@ -8,8 +8,8 @@ import {
   SafeAreaView,
 } from "react-native";
 
-import { AuthContext } from "../config/context";
-import colors from "../config/colors";
+import { AuthContext } from "../../config/context";
+import colors from "../../config/colors";
 
 const SignUpScreen = () => {
   const { signUp } = React.useContext(AuthContext);

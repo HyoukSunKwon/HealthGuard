@@ -8,12 +8,15 @@ import {
   SafeAreaView,
 } from "react-native";
 
-import colors from "../config/colors";
+import { AuthContext } from "../../config/context";
+import colors from "../../config/colors";
 
-const CalendarScreen = () => {
+const SignUpScreen = () => {
+  const { signUp } = React.useContext(AuthContext);
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.text}> Hello this is calendar</Text>
+      <Text style={styles.text}>Hello This is the Sign Up area</Text>
+      <Button title="Sign Up" onPress={() => signUp()} />
     </SafeAreaView>
   );
 };
@@ -27,5 +30,4 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
 });
-
-export default CalendarScreen;
+export default SignUpScreen;
