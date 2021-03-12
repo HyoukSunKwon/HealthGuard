@@ -2,8 +2,7 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import ProfileScreen from "../screens/ProfileScreen";
-import HomeScreen from "../screens/HomeScreen";
-import SignUpScreen from "../screens/SignUpScreen";
+//import SignUpScreen from "../screens/SignUpScreen";
 import EditScreen from "../screens/EditProfileScreen";
 import colors from "../config/colors";
 
@@ -21,16 +20,11 @@ const ProfileStack = () => {
         component={ProfileScreen}
         options={{ title: "Profile" }}
       />
-      <Stack.Screen
-        name="HomeScreen"
-        component={HomeScreen}
-        options={{ title: "Home" }}
-      />
-      <Stack.Screen
+      {/* <Stack.Screen
         name="SignUpScreen"
         component={SignUpScreen}
         options={{ title: "Sign Up" }}
-      />
+      /> */}
       <Stack.Screen
         name="EditProfileScreen"
         component={EditScreen}
