@@ -8,8 +8,6 @@ import {
 } from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
 
-import { AuthContext } from "../config/context";
-
 import colors from "../config/colors";
 import screen from "../config/screen";
 
@@ -41,10 +39,10 @@ const AddHistoryScreen = ({ navigation }) => {
     yearArr.push({ label: i.toString(), value: i });
   }
 
-  const genderArr = [
-    { label: "Male", value: "Male" },
-    { label: "Female", value: "Female" },
-    { label: "Other", value: "Other" },
+  const vaccineTypeArr = [
+    { label: "A", value: "A" },
+    { label: "B", value: "B" },
+    { label: "C", value: "C" },
   ];
   return (
     <View style={screen.container}>
@@ -52,9 +50,9 @@ const AddHistoryScreen = ({ navigation }) => {
         <Text style={styles.typeNameText}>Type</Text>
 
         <DropDownPicker
-          items={genderArr}
+          items={vaccineTypeArr}
           containerStyle={styles.typePickerStyle}
-          defaultValue="Male"
+          defaultValue="A"
         />
       </View>
       <View style={styles.makeRow}>
@@ -104,7 +102,7 @@ const AddHistoryScreen = ({ navigation }) => {
       </View>
 
       <View style={styles.buttonContainer}>
-        <TouchableOpacity onPress={() => signIn()}>
+        <TouchableOpacity onPress={() => navigation.navigate("HistoryScreen")}>
           <Text style={styles.button}>Add</Text>
         </TouchableOpacity>
       </View>
