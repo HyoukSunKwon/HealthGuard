@@ -35,7 +35,7 @@ const WelcomeScreen = ({ navigation }) => {
         <View style={styles.signUpButton}>
           <TouchableOpacity
             onPress={() =>
-              navigation.navigate("SignUpScreen", { name: "Sign Up" })
+              navigation.navigate("GetUserInfoScreen", { name: "Welcome" })
             }
           >
             <Text style={styles.subText}> Let's start </Text>
