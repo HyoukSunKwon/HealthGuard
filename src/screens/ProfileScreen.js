@@ -5,43 +5,9 @@ import { AuthContext } from "../config/context";
 import screenConfig from "../config/screen";
 import colors from "../config/colors";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import DropDownPicker from "react-native-dropdown-picker";
 
 const ProfileScreen = ({ navigation }) => {
   const { signOut, signUp } = React.useContext(AuthContext);
-
-  let dayArr = [];
-
-  for (let i = 1; i <= 31; i++) {
-    dayArr.push({ label: i.toString(), value: i });
-  }
-
-  const monArr = [
-    { label: "January", value: "January" },
-    { label: "Febuary", value: "Febuary" },
-    { label: "March", value: "March" },
-    { label: "April", value: "April" },
-    { label: "May", value: "May" },
-    { label: "June", value: "June" },
-    { label: "July", value: "July" },
-    { label: "August", value: "August" },
-    { label: "September", value: "September" },
-    { label: "October", value: "October" },
-    { label: "November", value: "November" },
-    { label: "December", value: "December" },
-  ];
-
-  let yearArr = [];
-  let year = new Date().getFullYear();
-  for (let i = year; i >= 1920; i--) {
-    yearArr.push({ label: i.toString(), value: i });
-  }
-
-  const genderArr = [
-    { label: "Male", value: "Male" },
-    { label: "Female", value: "Female" },
-    { label: "Other", value: "Other" },
-  ];
 
   return (
     <SafeAreaView style={screenConfig.container}>
@@ -71,38 +37,28 @@ const ProfileScreen = ({ navigation }) => {
           <View style={styles.makeRow}>
             <View style={styles.dayStyle}>
               <Text style={styles.dateText}>Day</Text>
-              <DropDownPicker
-                items={dayArr}
-                defaultValue={1}
-                containerStyle={{ height: 40 }}
-              />
+              <View style={styles.dobContainer}>
+                <Text style={styles.dateTextField}> 30</Text>
+              </View>
             </View>
             <View style={styles.monStyle}>
               <Text style={styles.dateText}>Month</Text>
-              <DropDownPicker
-                items={monArr}
-                containerStyle={{ height: 40 }}
-                defaultValue="January"
-              />
+              <View style={styles.dobContainer}>
+                <Text style={styles.dateTextField}> December</Text>
+              </View>
             </View>
             <View style={styles.yearStyle}>
               <Text style={styles.dateText}>Year</Text>
-              <DropDownPicker
-                items={yearArr}
-                containerStyle={{ height: 40 }}
-                defaultValue={year}
-              />
+              <View style={styles.dobContainer}>
+                <Text style={styles.dateTextField}> 2021</Text>
+              </View>
             </View>
           </View>
         </View>
         <View style={styles.fieldContainer}>
           <Text style={styles.genderText}> Gender</Text>
           <View style={styles.genderStyle}>
-            <DropDownPicker
-              items={genderArr}
-              containerStyle={{ height: 40 }}
-              defaultValue="Male"
-            />
+            <Text style={styles.genderTextField}> M</Text>
           </View>
         </View>
       </View>
@@ -149,7 +105,15 @@ const styles = StyleSheet.create({
   },
   Datetext: {
     fontSize: 18,
-    top: 55,
+    top: 40,
+  },
+  dateTextField: {
+    fontSize: 14,
+    textAlign: "center",
+  },
+  dobContainer: {
+    borderWidth: 1,
+    borderColor: colors.darkBlue,
   },
   textCreate: {
     textAlign: "center",
@@ -178,11 +142,16 @@ const styles = StyleSheet.create({
   genderStyle: {
     width: "64%",
     marginLeft: "27%",
-    bottom: 10,
+    borderWidth: 1,
+    borderColor: colors.darkBlue,
   },
   genderText: {
     fontSize: 18,
     top: 22,
+  },
+  genderTextField: {
+    textAlign: "center",
+    fontSize: 14,
   },
 });
 
