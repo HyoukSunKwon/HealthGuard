@@ -1,12 +1,14 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
+
+import HomeScreen from "../screens/HomeScreen";
 import HistoryScreen from "../screens/HistoryScreen";
 import colors from "../config/colors";
 import AddHistoryScreen from "../screens/AddHistoryScreen";
 
 const Stack = createStackNavigator();
 
-const HistoryStack = () => {
+const AddHistoryStack = () => {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -16,16 +18,16 @@ const HistoryStack = () => {
     >
       <Stack.Screen
         name="HistoryScreen"
-        component={HistoryScreen}
-        options={{ title: "History" }}
-      />
-      <Stack.Screen
-        name="AddHistoryScreen"
         component={AddHistoryScreen}
         options={{ title: "Add History" }}
+      />
+      <Stack.Screen
+        name="HistoryScreen"
+        component={HistoryScreen}
+        options={{ title: "History" }}
       />
     </Stack.Navigator>
   );
 };
 
-export default HistoryStack;
+export default AddHistoryStack;
