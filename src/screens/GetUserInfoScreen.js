@@ -34,7 +34,7 @@ const GetUserInfoScreen = ({ navigation }) => {
 
   let yearArr = [];
   let year = new Date().getFullYear();
-  for (let i = 1920; i <= year; i++) {
+  for (let i = year; i >= 1920; i--) {
     yearArr.push({ label: i.toString(), value: i });
   }
 
@@ -68,7 +68,7 @@ const GetUserInfoScreen = ({ navigation }) => {
           <DropDownPicker
             items={yearArr}
             containerStyle={{ height: 40 }}
-            defaultValue={1920}
+            defaultValue={year}
           />
         </View>
       </View>
