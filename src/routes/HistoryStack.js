@@ -1,6 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 
+import HomeScreen from "../screens/not-using/HomeScreen";
 import HistoryScreen from "../screens/HistoryScreen";
 import colors from "../config/colors";
 

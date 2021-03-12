@@ -8,8 +8,8 @@ import {
   TextInput,
 } from "react-native";
 
-import colors from "../config/colors";
-import screenConfig from "../config/screen";
+import colors from "../../config/colors";
+import screenConfig from "../../config/screen";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 const ForgetPwdScreen = ({ navigation }) => {
@@ -18,7 +18,7 @@ const ForgetPwdScreen = ({ navigation }) => {
       <Image
         resizeMode="contain"
         style={screenConfig.logoImage}
-        source={require("../../assets/icon.png")}
+        source={require("../../../assets/icon.png")}
       />
       <Text style={styles.text}>Forgot your password?</Text>
       <Text style={styles.subText}>

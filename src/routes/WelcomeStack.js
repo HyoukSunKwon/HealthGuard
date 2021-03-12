@@ -2,9 +2,9 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import WelcomeScreen from "../screens/WelcomeScreen";
-import SignIn from "../screens/SignInScreen";
-import SignUp from "../screens/SignUpScreen";
-import ForgetPwd from "../screens/ForgetPwdScreen";
+import SignIn from "../screens/not-using/SignInScreen";
+import SignUp from "../screens/not-using/SignUpScreen";
+import ForgetPwd from "../screens/not-using/ForgetPwdScreen";
 
 import colors from "../config/colors";
 import TermsCondition from "../screens/TermsConditionScreen";
