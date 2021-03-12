@@ -38,19 +38,10 @@ const WelcomeScreen = ({ navigation }) => {
               navigation.navigate("SignUpScreen", { name: "Sign Up" })
             }
           >
-            <Text style={styles.subText}> Create Account</Text>
+            <Text style={styles.subText}> Let's start </Text>
           </TouchableOpacity>
         </View>
-        <View style={styles.loginButton}>
-          <TouchableOpacity
-            onPress={() =>
-              navigation.navigate("SignInScreen", { name: "Sign In" })
-            }
-          >
-            <Text style={styles.subText}> Log in </Text>
-          </TouchableOpacity>
-        </View>
-
+        
         <View styles={styles.termsButton}>
           <TouchableOpacity
             onPress={() =>
@@ -59,7 +50,7 @@ const WelcomeScreen = ({ navigation }) => {
               })
             }
           >
-            <Text styles={styles.text}> Terms and condition </Text>
+            <Text styles={styles.text}> Terms and Condition </Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -78,7 +69,7 @@ const styles = StyleSheet.create({
     height: 50,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: colors.darkBlue,
+    backgroundColor: colors.lightBlue,
     elevation: 8,
     borderRadius: 30,
     paddingVertical: 20,
@@ -98,7 +89,7 @@ const styles = StyleSheet.create({
     height: 50,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: colors.darkBlue,
+    backgroundColor: colors.lightBlue,
     elevation: 8,
     borderRadius: 30,
     paddingVertical: 20,
