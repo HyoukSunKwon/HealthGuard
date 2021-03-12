@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "../screens/HomeScreen";
 import HistoryScreen from "../screens/HistoryScreen";
 import colors from "../config/colors";
+import AddHistoryScreen from "../screens/AddHistoryScreen";
 
 const Stack = createStackNavigator();
 
@@ -24,6 +25,11 @@ const HistoryStack = () => {
         name="HomeScreen"
         component={HomeScreen}
         options={{ title: "Home" }}
+      />
+      <Stack.Screen
+        name="AddHistoryScreen"
+        component={AddHistoryScreen}
+        options={{ title: "Add History" }}
       />
     </Stack.Navigator>
   );
