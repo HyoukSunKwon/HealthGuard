@@ -1,36 +1,3 @@
-// import React from "react";
-// import { createStackNavigator } from "@react-navigation/stack";
-
-// import GetUserInfoScreen from "../screens/GetUserInfoScreen";
-// import HomeScreen from "../screens/HomeScreen";
-// import colors from "../config/colors";
-
-// const Stack = createStackNavigator();
-
-// const GetUserInfoStack = () => {
-//   return (
-//     <Stack.Navigator
-//       screenOptions={{
-//         headerTintColor: colors.lightBlue,
-//         headerTitleAlign: "center",
-//       }}
-//     >
-//       <Stack.Screen
-//         name="GetUserInfoScreen"
-//         component={GetUserInfoScreen}
-//         options={{ title: "Get User Info" }}
-//       />
-//       <Stack.Screen
-//         name="HomeScreen"
-//         component={HomeScreen}
-//         options={{ title: "Home" }}
-//       />
-//     </Stack.Navigator>
-//   );
-// };
-
-// export default GetUserInfoStack;
-
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 

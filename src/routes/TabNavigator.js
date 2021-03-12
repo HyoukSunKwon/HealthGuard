@@ -2,9 +2,9 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-import HomeStack from "../routes/HomeStack";
+//import HomeStack from "../routes/HomeStack";
 import ProfileStack from "../routes/ProfileStack";
-import CalendarStack from "./CalendarStack";
+//import CalendarStack from "./CalendarStack";
 import HistoryStack from "./HistoryStack";
 import colors from "../config/colors";
 

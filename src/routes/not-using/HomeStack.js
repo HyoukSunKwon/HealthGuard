@@ -1,11 +1,11 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import HomeScreen from "../screens/HomeScreen";
-import ProfileScreen from "../screens/ProfileScreen";
-import AddAccountScreen from "../screens/AddAccountScreen";
+import HomeScreen from "../../screens/HomeScreen";
+import ProfileScreen from "../../screens/ProfileScreen";
+import AddAccountScreen from "../../screens/AddAccountScreen";
 
-import colors from "../config/colors";
+import colors from "../../config/colors";
 const Stack = createStackNavigator();
 
 const HomeStack = () => {
