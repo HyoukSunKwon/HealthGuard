@@ -40,9 +40,19 @@ const AddHistoryScreen = ({ navigation }) => {
   }
 
   const vaccineTypeArr = [
-    { label: "A", value: "A" },
-    { label: "B", value: "B" },
-    { label: "C", value: "C" },
+    { label: "Covid19", value: "A" },
+    { label: "Flu", value: "B" },
+    { label: "DTap", value: "C" },
+    { label: "Tdap", value: "D" },
+    { label: "Hib", value: "E" },
+    { label: "Hepatitis A", value: "F" },
+    { label: "Hapatitis B", value: "G" },
+    { label: "Papillomavirus", value: "H" },
+    { label: "M-M-R", value: "I" },
+    { label: "Meningococcal", value: "J" },
+    { label: "Pneumococcal", value: "K" },
+    { label: "Poliovirus", value: "L" },
+    { label: "Rotavirus", value: "M" },
   ];
   return (
     <View style={screen.container}>
@@ -82,14 +92,14 @@ const AddHistoryScreen = ({ navigation }) => {
         </View>
       </View>
 
-      <View style={styles.typeNameContainer}>
+      {/* <View style={styles.typeNameContainer}>
         <Text style={styles.typeNameText}>Name</Text>
         <TextInput
           style={styles.textInputStyle}
           //   onChangeText={text => onChangeText(text)}
           //   value={value}
         />
-      </View>
+      </View> */}
 
       <View style={styles.noteContainer}>
         <Text style={styles.questionStyle}>Note</Text>
@@ -112,7 +122,7 @@ const AddHistoryScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   typeNameContainer: {
-    marginTop: "8%",
+    marginTop: "25%",
     marginBottom: "5%",
     marginLeft: "15%",
     flexDirection: "row",
