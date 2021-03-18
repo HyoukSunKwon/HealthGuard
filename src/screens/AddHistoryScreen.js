@@ -11,6 +11,7 @@ import DropDownPicker from "react-native-dropdown-picker";
 import colors from "../config/colors";
 import screen from "../config/screen";
 
+
 const AddHistoryScreen = ({ navigation }) => {
   let dayArr = [];
 
@@ -122,7 +123,7 @@ const AddHistoryScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   typeNameContainer: {
-    marginTop: "25%",
+    marginTop: "5%",
     marginBottom: "5%",
     marginLeft: "15%",
     flexDirection: "row",
