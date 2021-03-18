@@ -4,6 +4,7 @@ import DropDownPicker from "react-native-dropdown-picker";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 import { AuthContext } from "../config/context";
+import { scale, moderateScale, verticalScale } from "../config/scaling";
 
 import colors from "../config/colors";
 import screen from "../config/screen";
@@ -106,9 +107,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignSelf: "center",
   },
-  dayStyle: { width: "15%" },
-  monStyle: { width: "25%", marginLeft: 20 },
-  yearStyle: { width: "20%", marginLeft: 20 },
+  dayStyle: { width: scale(50) },
+  monStyle: { width: moderateScale(110, 0.4), marginLeft: 20 },
+  yearStyle: { width: moderateScale(80), marginLeft: 20 },
   dateText: {
     fontSize: 20,
     textAlign: "center",
