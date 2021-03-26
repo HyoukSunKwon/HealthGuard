@@ -107,9 +107,9 @@ const styles = StyleSheet.create({
   dayStyle: {
     width: scale(50),
   },
+  yearStyle: { width: moderateScale(80), marginLeft: 20 },
   dateText: {
     fontSize: moderateScale(17),
-    textAlign: "center",
     marginBottom: scale(5),
   },
   genderPickerStyle: {
