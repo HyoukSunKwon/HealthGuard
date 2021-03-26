@@ -41,22 +41,15 @@ const AddHistoryScreen = ({ navigation }) => {
     yearArr.push({ label: i.toString(), value: i });
   }
 
-  const vaccineTypeArr = [
-    { label: "A", value: "A" },
-    { label: "B", value: "B" },
-    { label: "C", value: "C" },
-  ];
   return (
     <SafeAreaView style={screen.container}>
       <View style={styles.typeNameContainer}>
-        <Text style={styles.typeNameText}>Type</Text>
-
-        <DropDownPicker
-          items={vaccineTypeArr}
-          containerStyle={styles.typePickerStyle}
-          defaultValue="A"
-        />
+        <Text style={styles.typeNameText}>Type your vaccine type</Text>
       </View>
+      <View>
+        <TextInput style={styles.textInputStyle} />
+      </View>
+
       <View style={styles.makeRow}>
         <View style={styles.dayStyle}>
           <Text style={styles.dateText}>Day</Text>
@@ -84,15 +77,6 @@ const AddHistoryScreen = ({ navigation }) => {
         </View>
       </View>
 
-      <View style={styles.typeNameContainer}>
-        <Text style={styles.typeNameText}>Name</Text>
-        <TextInput
-          style={styles.textInputStyle}
-          //   onChangeText={text => onChangeText(text)}
-          //   value={value}
-        />
-      </View>
-
       <View style={styles.noteContainer}>
         <Text style={styles.questionStyle}>Note</Text>
 
@@ -114,34 +98,28 @@ const AddHistoryScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   typeNameContainer: {
-    marginTop: "8%",
-    marginBottom: "5%",
-    marginLeft: "15%",
-    flexDirection: "row",
+    marginTop: moderateScale(20),
+    marginBottom: moderateScale(10),
+    alignItems: "center",
   },
   typeNameText: {
-    fontSize: 25,
+    fontSize: moderateScale(20),
+    alignItems: "center",
     fontWeight: "bold",
     color: colors.darkGrey,
   },
-  typePickerStyle: {
-    height: "100%",
-    width: "60%",
-    marginLeft: "5%",
-  },
   textInputStyle: {
-    height: "100%",
-    width: "55%",
-    marginLeft: "5%",
+    height: moderateScale(40),
+    width: moderateScale(255),
+    alignSelf: "center",
     borderColor: colors.lightBlue,
     borderWidth: 1,
   },
   questionStyle: {
-    marginTop: "8%",
-    marginBottom: "5%",
+    marginTop: moderateScale(10),
+    marginBottom: moderateScale(10),
     textAlign: "center",
-    alignItems: "center",
-    fontSize: 25,
+    fontSize: moderateScale(20),
     fontWeight: "bold",
     color: colors.darkGrey,
   },
@@ -149,35 +127,38 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignSelf: "center",
   },
-  dayStyle: { width: scale(50) },
-  monStyle: { width: moderateScale(110, 0.4), marginLeft: "5%" },
-  yearStyle: { width: moderateScale(80), marginLeft: "5%" },
+  dayStyle: { width: moderateScale(60) },
+  monStyle: { width: moderateScale(110, 0.4), marginLeft: moderateScale(5) },
+  yearStyle: { width: moderateScale(80), marginLeft: moderateScale(5) },
   dateText: {
-    fontSize: 20,
+    fontSize: moderateScale(20),
     textAlign: "center",
-    marginBottom: "2%",
+    marginBottom: moderateScale(5),
+    marginTop: moderateScale(10),
+    fontWeight: "bold",
   },
   noteContainer: {
     alignSelf: "center",
-    width: "70%",
+    width: moderateScale(250),
   },
   noteStyle: {
-    width: "100%",
+    width: moderateScale(250),
     borderColor: colors.lightBlue,
     borderWidth: 1,
   },
   buttonContainer: {
-    marginTop: "8%",
+    marginTop: moderateScale(20),
     justifyContent: "center",
     alignSelf: "center",
     alignItems: "center",
-    width: "60%",
-    height: "10%",
+    width: moderateScale(150),
+    height: moderateScale(50),
     borderRadius: 30,
     backgroundColor: colors.lightBlue_button,
   },
   button: {
-    fontSize: 25,
+    fontSize: moderateScale(20),
+    fontWeight: "bold",
   },
 });
 export default AddHistoryScreen;
