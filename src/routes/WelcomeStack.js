@@ -22,7 +22,7 @@ const WelcomeStack = () => {
       <Stack.Screen
         name="WelcomeScreen"
         component={WelcomeScreen}
-        options={{ title: "Welcome" }}
+        options={{ title: "Welcome", headerShown: false }}
       />
       <Stack.Screen
         name="GetUserInfoScreen"
@@ -32,7 +32,7 @@ const WelcomeStack = () => {
       <Stack.Screen
         name="TermsConditionScreen"
         component={TermsCondition}
-        options={{ title: "TermsCondition" }}
+        options={{ title: "Terms and Condition" }}
       />
       {/* <Stack.Screen
         name="SignUpScreen"

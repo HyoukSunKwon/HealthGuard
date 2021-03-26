@@ -2,7 +2,8 @@ import React from "react";
 import { Image, StyleSheet, View, Text, SafeAreaView } from "react-native";
 
 import { AuthContext } from "../config/context";
-import screenConfig from "../config/screen";
+import { scale, moderateScale, verticalScale } from "../config/scaling";
+import screen from "../config/screen";
 import colors from "../config/colors";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
@@ -14,18 +15,20 @@ const ProfileScreen = ({ navigation }) => {
     gender = "Male";
 
   return (
-    <SafeAreaView style={screenConfig.container}>
+    <SafeAreaView style={screen.container}>
       <View style={styles.container}>
-        <Image
-          // resizeMode="contain"
-          style={screenConfig.logoImage}
-          source={require("../../assets/icon.png")}
-        />
+        <View style={styles.logoContainer}>
+          <Image
+            style={screen.logoImage}
+            source={require("../../assets/icon.png")}
+          />
+        </View>
+
         {/* <TouchableOpacity onPress={() => signUp()}>
         <Text style={styles.textCreate}> Wanna create an account? </Text>
       </TouchableOpacity> */}
 
-        <View style={styles.buttonContainer}>
+        <View style={styles.editContainer}>
           <TouchableOpacity
             onPress={() =>
               navigation.navigate("EditProfileScreen", { name: "Edit Profile" })
@@ -60,12 +63,6 @@ const ProfileScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    alignItems: "center",
-    alignSelf: "center",
-    width: "100%",
-    height: "100%",
-  },
   buttonContainer: {
     backgroundColor: colors.lightBlue_button,
     width: "70%",
@@ -73,32 +70,37 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 30,
+    top: verticalScale(60),
   },
   buttonText: {
     fontSize: 18,
   },
-  dataContainer: {
-    marginTop: "5%",
-    marginBottom: "5%",
+  container: {
     alignItems: "center",
-    flex: 0.8,
-    height: "30%",
+  },
+  dataContainer: {
+    marginTop: verticalScale(60),
+    alignItems: "center",
   },
   dobGendertext: {
-    fontSize: 24,
-    marginTop: "8%",
+    fontSize: moderateScale(20),
+    marginTop: verticalScale(25),
   },
-  // textCreate: {
-  //   textAlign: "center",
-  //   color: colors.darkBlue,
-  // },
-  dateText: {
-    fontSize: 15,
-    textAlign: "center",
-    marginBottom: "2%",
+  editContainer: {
+    backgroundColor: colors.lightBlue_button,
+    width: "70%",
+    height: "7%",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 30,
+    top: verticalScale(60),
   },
   textField: {
-    fontSize: 18,
+    fontSize: moderateScale(16),
+  },
+  logoContainer: {
+    top: verticalScale(40),
+    alignItems: "center",
   },
 });
 

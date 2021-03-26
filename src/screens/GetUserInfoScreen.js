@@ -86,7 +86,7 @@ const GetUserInfoScreen = ({ navigation }) => {
 
       <View style={styles.buttonContainer}>
         <TouchableOpacity onPress={() => signIn()}>
-          <Text style={styles.button}>Submit</Text>
+          <Text style={screen.buttonText}>Submit</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -94,31 +94,6 @@ const GetUserInfoScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  questionStyle: {
-    marginTop: 30,
-    marginBottom: 10,
-    textAlign: "center",
-    alignItems: "center",
-    fontSize: 25,
-    fontWeight: "bold",
-    color: colors.darkGrey,
-  },
-  makeRow: {
-    flexDirection: "row",
-    alignSelf: "center",
-  },
-  dayStyle: { width: scale(50) },
-  monStyle: { width: moderateScale(110, 0.4), marginLeft: 20 },
-  yearStyle: { width: moderateScale(80), marginLeft: 20 },
-  dateText: {
-    fontSize: 20,
-    textAlign: "center",
-    marginBottom: 5,
-  },
-  genderPickerStyle: {
-    alignSelf: "center",
-    width: "50%",
-  },
   buttonContainer: {
     marginTop: "8%",
     justifyContent: "center",
@@ -129,8 +104,38 @@ const styles = StyleSheet.create({
     backgroundColor: colors.lightBlue_button,
     borderRadius: 30,
   },
-  button: {
-    fontSize: 25,
+  dayStyle: {
+    width: scale(50),
+  },
+  dateText: {
+    fontSize: moderateScale(17),
+    textAlign: "center",
+    marginBottom: scale(5),
+  },
+  genderPickerStyle: {
+    alignSelf: "center",
+    width: moderateScale(275),
+  },
+  makeRow: {
+    flexDirection: "row",
+    alignSelf: "center",
+  },
+  monStyle: {
+    width: moderateScale(110, 0.4),
+    marginLeft: scale(20),
+  },
+  questionStyle: {
+    marginTop: verticalScale(40),
+    marginBottom: scale(10),
+    textAlign: "center",
+    alignItems: "center",
+    fontSize: moderateScale(20),
+    fontWeight: "bold",
+    color: colors.darkGrey,
+  },
+  yearStyle: {
+    width: moderateScale(80),
+    marginLeft: scale(20),
   },
 });
 export default GetUserInfoScreen;

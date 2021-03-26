@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Button,
   Image,
   ImageBackground,
   StyleSheet,
@@ -10,7 +9,9 @@ import {
 } from "react-native";
 
 import { AuthContext } from "../config/context";
+import { scale, moderateScale, verticalScale } from "../config/scaling";
 import colors from "../config/colors";
+import screen from "../config/screen";
 
 const WelcomeScreen = ({ navigation }) => {
   const { signIn } = React.useContext(AuthContext);
@@ -20,37 +21,34 @@ const WelcomeScreen = ({ navigation }) => {
       source={require("../../assets/welcome-bg.jpg")}
     >
       <View style={styles.logoContainer}>
-        <Image style={styles.logo} source={require("../../assets/icon.png")} />
+        <Image
+          style={screen.logoImage}
+          source={require("../../assets/icon.png")}
+        />
         <Text style={styles.titleText}> Health Guard</Text>
         <Text style={styles.subText}> Check your vaccination history</Text>
       </View>
 
-      <View
-        style={{
-          flex: 0.5,
-          justifyContent: "space-evenly",
-          alignItems: "center",
-        }}
-      >
+      <View style={styles.buttonContainer}>
         <View style={styles.signUpButton}>
           <TouchableOpacity
             onPress={() =>
               navigation.navigate("GetUserInfoScreen", { name: "Welcome" })
             }
           >
-            <Text style={styles.subText}> Let's start </Text>
+            <Text style={screen.buttonText}> Let's start </Text>
           </TouchableOpacity>
         </View>
-        
-        <View styles={styles.termsButton}>
+
+        <View style={styles.termsButton}>
           <TouchableOpacity
             onPress={() =>
               navigation.navigate("TermsConditionScreen", {
-                name: "TermsCondition",
+                name: "Terms and Condition",
               })
             }
           >
-            <Text styles={styles.text}> Terms and Condition </Text>
+            <Text style={styles.text}> Terms and Condition </Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -64,24 +62,17 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     alignItems: "center",
   },
-  loginButton: {
-    width: 350,
-    height: 50,
+  buttonContainer: {
+    flex: 0.5,
+    justifyContent: "space-evenly",
     alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: colors.lightBlue,
-    elevation: 8,
-    borderRadius: 30,
-    paddingVertical: 20,
-    paddingHorizontal: 100,
   },
-  logo: {
-    width: 100,
-    height: 100,
+  buttonText: {
+    fontSize: moderateScale(20),
   },
   logoContainer: {
     position: "absolute",
-    top: 80,
+    top: verticalScale(100),
     alignItems: "center",
   },
   signUpButton: {
@@ -89,25 +80,23 @@ const styles = StyleSheet.create({
     height: 50,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: colors.lightBlue,
+    backgroundColor: colors.lightBlue_button,
     elevation: 8,
     borderRadius: 30,
     paddingVertical: 20,
     paddingHorizontal: 100,
   },
   subText: {
-    fontSize: 20,
+    fontSize: moderateScale(20),
   },
   titleText: {
-    fontSize: 30,
+    fontSize: moderateScale(32),
     fontWeight: "bold",
   },
   text: {
-    fontSize: 25,
+    fontSize: moderateScale(15),
   },
   termsButton: {
-    width: 100,
-    height: 50,
     alignItems: "center",
   },
 });

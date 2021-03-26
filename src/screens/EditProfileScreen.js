@@ -44,7 +44,7 @@ const EditProfileScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={screenConfig.container}>
       <View style={styles.formContainer}>
-        <Text style={styles.Datetext}>Date of Birth</Text>
+        <Text style={styles.titleText}>Date of Birth</Text>
         <View style={styles.makeRow}>
           <View style={styles.dayStyle}>
             <Text style={styles.dateText}>Day</Text>
@@ -73,7 +73,7 @@ const EditProfileScreen = ({ navigation }) => {
         </View>
 
         <View style={styles.fieldContainer}>
-          <Text style={styles.genderText}> Gender</Text>
+          <Text style={styles.titleText}> Gender</Text>
           <View style={styles.genderStyle}>
             <DropDownPicker
               items={genderArr}
@@ -102,46 +102,50 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 10,
-    marginTop: "5%",
   },
   buttonContainer: {
     marginLeft: "25%",
     height: "30%",
+    top: verticalScale(100),
   },
   buttonText: {
     fontSize: 18,
   },
-  Datetext: {
-    fontSize: moderateScale(18, 0.25),
-    top: 55,
+  dayStyle: {
+    width: scale(50),
+  },
+  dateText: {
+    fontSize: moderateScale(17),
     textAlign: "center",
+    marginBottom: scale(5),
   },
   formContainer: {
-    bottom: 60,
-    marginTop: verticalScale(30),
+    marginTop: verticalScale(10),
+  },
+  genderStyle: {
+    width: moderateScale(275),
+    alignSelf: "center",
+    top: moderateScale(45),
   },
   makeRow: {
     flexDirection: "row",
     alignSelf: "center",
-    marginTop: verticalScale(70),
+    marginTop: verticalScale(45),
   },
-  dayStyle: { width: scale(50) },
-  monStyle: { width: moderateScale(110, 0.4), marginLeft: 10 },
-  yearStyle: { width: moderateScale(80), marginLeft: 10 },
-  dateText: {
-    fontSize: 15,
+  monStyle: {
+    width: moderateScale(110, 0.4),
+    marginLeft: scale(20),
+  },
+  titleText: {
+    fontSize: moderateScale(20),
+    top: verticalScale(35),
     textAlign: "center",
-    marginBottom: 5,
+    color: colors.darkGrey,
+    fontWeight: "bold",
   },
-  genderStyle: {
-    width: moderateScale(250),
-    alignSelf: "center",
-    top: moderateScale(30, 0.4),
-  },
-  genderText: {
-    fontSize: moderateScale(18, 0.25),
-    top: 22,
-    textAlign: "center",
+  yearStyle: {
+    width: moderateScale(80),
+    marginLeft: scale(20),
   },
 });
 
