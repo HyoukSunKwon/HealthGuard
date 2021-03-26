@@ -103,9 +103,9 @@ const AddHistoryScreen = ({ navigation }) => {
         ></TextInput>
       </View>
 
-      <View style={styles.buttonContainer}>
+      <View style={screen.buttonContainer}>
         <TouchableOpacity onPress={() => navigation.navigate("HistoryScreen")}>
-          <Text style={styles.button}>Add</Text>
+          <Text style={screen.buttonText}>Add</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -165,19 +165,6 @@ const styles = StyleSheet.create({
     width: "100%",
     borderColor: colors.lightBlue,
     borderWidth: 1,
-  },
-  buttonContainer: {
-    marginTop: "8%",
-    justifyContent: "center",
-    alignSelf: "center",
-    alignItems: "center",
-    width: "60%",
-    height: "10%",
-    borderRadius: 30,
-    backgroundColor: colors.lightBlue_button,
-  },
-  button: {
-    fontSize: 25,
   },
 });
 export default AddHistoryScreen;
