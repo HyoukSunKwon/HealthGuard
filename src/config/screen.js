@@ -13,7 +13,6 @@ export default {
     height: verticalScale(90),
   },
   buttonContainer: {
-    marginTop: "8%",
     justifyContent: "center",
     alignSelf: "center",
     alignItems: "center",
