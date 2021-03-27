@@ -30,11 +30,12 @@ const ProfileScreen = ({ navigation }) => {
 
         <View style={styles.editContainer}>
           <TouchableOpacity
+            style={screen.buttonContainer}
             onPress={() =>
               navigation.navigate("EditProfileScreen", { name: "Edit Profile" })
             }
           >
-            <Text style={styles.buttonText}>Edit Profile</Text>
+            <Text style={screen.buttonText}>Edit Profile</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.dataContainer}>
@@ -47,9 +48,9 @@ const ProfileScreen = ({ navigation }) => {
           {/* </View> */}
         </View>
 
-        <View style={styles.buttonContainer}>
+        <View style={screen.buttonContainer}>
           <TouchableOpacity onPress={() => signOut()}>
-            <Text style={styles.buttonText}>Sign Out</Text>
+            <Text style={screen.buttonText}>Sign Out</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -63,18 +64,6 @@ const ProfileScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  buttonContainer: {
-    backgroundColor: colors.lightBlue_button,
-    width: "70%",
-    height: "7%",
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: 30,
-    top: verticalScale(60),
-  },
-  buttonText: {
-    fontSize: 18,
-  },
   container: {
     alignItems: "center",
   },
@@ -87,12 +76,6 @@ const styles = StyleSheet.create({
     marginTop: verticalScale(25),
   },
   editContainer: {
-    backgroundColor: colors.lightBlue_button,
-    width: "70%",
-    height: "7%",
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: 30,
     top: verticalScale(60),
   },
   textField: {

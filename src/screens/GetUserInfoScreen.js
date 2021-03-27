@@ -84,8 +84,11 @@ const GetUserInfoScreen = ({ navigation }) => {
         />
       </View>
 
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity onPress={() => signIn()}>
+      <View style={styles.btnContainer}>
+        <TouchableOpacity
+          style={screen.buttonContainer}
+          onPress={() => signIn()}
+        >
           <Text style={screen.buttonText}>Submit</Text>
         </TouchableOpacity>
       </View>
@@ -94,16 +97,6 @@ const GetUserInfoScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  buttonContainer: {
-    marginTop: "8%",
-    justifyContent: "center",
-    alignSelf: "center",
-    alignItems: "center",
-    width: "60%",
-    height: "10%",
-    backgroundColor: colors.lightBlue_button,
-    borderRadius: 30,
-  },
   dayStyle: {
     width: scale(50),
   },
@@ -136,6 +129,9 @@ const styles = StyleSheet.create({
   yearStyle: {
     width: moderateScale(80),
     marginLeft: scale(20),
+  },
+  btnContainer: {
+    marginTop: moderateScale(40),
   },
 });
 export default GetUserInfoScreen;

@@ -1,9 +1,7 @@
 import { scale, moderateScale, verticalScale } from "./scaling";
+import colors from "./colors";
 
 export default {
-  buttonText: {
-    fontSize: moderateScale(20),
-  },
   container: {
     backgroundColor: "#fff",
     flex: 1,
@@ -13,5 +11,17 @@ export default {
   logoImage: {
     width: scale(90),
     height: verticalScale(90),
+  },
+  buttonContainer: {
+    justifyContent: "center",
+    alignSelf: "center",
+    alignItems: "center",
+    width: scale(240),
+    height: verticalScale(50),
+    backgroundColor: colors.lightBlue_button,
+    borderRadius: moderateScale(20),
+  },
+  buttonText: {
+    fontSize: moderateScale(20),
   },
 };

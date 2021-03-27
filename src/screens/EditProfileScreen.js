@@ -1,11 +1,11 @@
 import React from "react";
 import { StyleSheet, View, Text, SafeAreaView } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import DropDownPicker from "react-native-dropdown-picker";
 
+import { scale, moderateScale, verticalScale } from "../config/scaling";
 import screenConfig from "../config/screen";
 import colors from "../config/colors";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import { scale, moderateScale, verticalScale } from "../config/scaling";
-import DropDownPicker from "react-native-dropdown-picker";
 
 const EditProfileScreen = ({ navigation }) => {
   let dayArr = [];
@@ -83,33 +83,21 @@ const EditProfileScreen = ({ navigation }) => {
           </View>
         </View>
       </View>
-      <View style={styles.buttonContainer}>
-        <View style={styles.button}>
-          <TouchableOpacity onPress={() => console.log("Save Press")}>
-            <Text style={styles.buttonText}>Save Profile</Text>
-          </TouchableOpacity>
-        </View>
+      <View style={styles.saveButtonContainer}>
+        <TouchableOpacity
+          style={screenConfig.buttonContainer}
+          onPress={() => console.log("Save Press")}
+        >
+          <Text style={screenConfig.buttonText}>Save Profile</Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  button: {
-    backgroundColor: colors.lightBlue_button,
-    width: "70%",
-    height: "20%",
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: 10,
-  },
-  buttonContainer: {
-    marginLeft: "25%",
-    height: "30%",
+  saveButtonContainer: {
     top: verticalScale(100),
-  },
-  buttonText: {
-    fontSize: 18,
   },
   dayStyle: {
     width: scale(50),
