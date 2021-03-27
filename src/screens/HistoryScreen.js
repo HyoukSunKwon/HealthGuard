@@ -72,7 +72,9 @@ const HistoryScreen = ({ navigation }) => {
           return (
             <View style={styles.container}>
               <View style={styles.listStyle}>
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("EditHistoryScreen")}
+                >
                   <Text style={styles.type}>{data.type}</Text>
                   <Text style={styles.date}>
                     <Ionicons
