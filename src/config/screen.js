@@ -19,7 +19,7 @@ export default {
     width: scale(240),
     height: verticalScale(50),
     backgroundColor: colors.lightBlue_button,
-    borderRadius: 30,
+    borderRadius: moderateScale(20),
   },
   buttonText: {
     fontSize: moderateScale(20),
