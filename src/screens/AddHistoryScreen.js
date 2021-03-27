@@ -100,19 +100,18 @@ const styles = StyleSheet.create({
   typeNameContainer: {
     marginTop: moderateScale(20),
     marginBottom: moderateScale(10),
-    marginLeft: moderateScale(45),
-    flexDirection: "row",
+    alignSelf: "center",
   },
   typeNameText: {
     fontSize: moderateScale(20),
-    marginLeft: moderateScale(30),
+    alignSelf: "center",
     fontWeight: "bold",
     color: colors.darkGrey,
   },
   textInputStyle: {
     height: moderateScale(40),
     width: moderateScale(255),
-    marginLeft: moderateScale(60),
+    alignSelf: "center",
     borderColor: colors.lightBlue,
     borderWidth: 1,
   },
