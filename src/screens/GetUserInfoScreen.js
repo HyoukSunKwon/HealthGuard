@@ -43,6 +43,7 @@ const GetUserInfoScreen = ({ navigation }) => {
     { label: "Male", value: "Male" },
     { label: "Female", value: "Female" },
     { label: "Other", value: "Other" },
+    { label: "Prefer not to answer", value: "Prefer not to answer" },
   ];
   return (
     <View style={screen.container}>
@@ -84,11 +85,8 @@ const GetUserInfoScreen = ({ navigation }) => {
         />
       </View>
 
-      <View style={styles.btnContainer}>
-        <TouchableOpacity
-          style={screen.buttonContainer}
-          onPress={() => signIn()}
-        >
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity onPress={() => signIn()}>
           <Text style={screen.buttonText}>Submit</Text>
         </TouchableOpacity>
       </View>
@@ -97,12 +95,22 @@ const GetUserInfoScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+  buttonContainer: {
+    marginTop: "8%",
+    justifyContent: "center",
+    alignSelf: "center",
+    alignItems: "center",
+    width: "60%",
+    height: "10%",
+    backgroundColor: colors.lightBlue_button,
+    borderRadius: 30,
+  },
   dayStyle: {
     width: scale(50),
   },
-  yearStyle: { width: moderateScale(80), marginLeft: 20 },
   dateText: {
     fontSize: moderateScale(17),
+    textAlign: "center",
     marginBottom: scale(5),
   },
   genderPickerStyle: {
@@ -129,9 +137,6 @@ const styles = StyleSheet.create({
   yearStyle: {
     width: moderateScale(80),
     marginLeft: scale(20),
-  },
-  btnContainer: {
-    marginTop: moderateScale(40),
   },
 });
 export default GetUserInfoScreen;
