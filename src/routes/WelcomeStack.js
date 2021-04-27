@@ -5,8 +5,9 @@ import WelcomeScreen from "../screens/WelcomeScreen";
 // import SignIn from "../screens/not-using/SignInScreen";
 // import SignUp from "../screens/not-using/SignUpScreen";
 // import ForgetPwd from "../screens/not-using/ForgetPwdScreen";
-import User from "../screens/GetUserInfoScreen";
-import TermsCondition from "../screens/TermsConditionScreen";
+//import User from "../screens/GetUserInfoScreen";
+//import TermsCondition from "../screens/TermsConditionScreen";
+import Children from "../screens/HistoryScreen";
 import colors from "../config/colors";
 
 const Stack = createStackNavigator();
@@ -25,15 +26,22 @@ const WelcomeStack = () => {
         options={{ title: "Welcome", headerShown: false }}
       />
       <Stack.Screen
+        name="Children"
+        component={Children}
+        options={{ title: "Children" }}
+      />
+
+      {/* <Stack.Screen
         name="GetUserInfoScreen"
         component={User}
         options={{ title: "Welcome" }}
-      />
-      <Stack.Screen
+      /> */}
+
+      {/* <Stack.Screen
         name="TermsConditionScreen"
         component={TermsCondition}
         options={{ title: "Terms and Condition" }}
-      />
+      /> */}
       {/* <Stack.Screen
         name="SignUpScreen"
         component={SignUp}

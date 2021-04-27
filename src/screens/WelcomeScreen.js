@@ -32,9 +32,7 @@ const WelcomeScreen = ({ navigation }) => {
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           style={screen.buttonContainer}
-          onPress={() =>
-            navigation.navigate("GetUserInfoScreen", { name: "Welcome" })
-          }
+          onPress={() => navigation.navigate("Children", { name: "Children" })}
         >
           <Text style={screen.buttonText}> Let's start </Text>
         </TouchableOpacity>
