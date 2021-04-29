@@ -3,8 +3,8 @@ import { NavigationContainer } from "@react-navigation/native";
 
 import { AuthContext } from "./src/config/context";
 import LoadingScreen from "./src/screens/LoadingScreen";
-import WelcomeStack from "./src/routes/WelcomeStack";
-import TabStack from "./src/routes/TabNavigator";
+import ChildrenStack from "./src/routes/ChildrenStack";
+import TermsConditionStack from "./src/routes/TermsConditionStack";
 
 export default function App() {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -39,7 +39,7 @@ export default function App() {
   return (
     <AuthContext.Provider value={authContext}>
       <NavigationContainer>
-        {userToken ? <TabStack /> : <WelcomeStack />}
+        {userToken ? <ChildrenStack /> : <TermsConditionStack />}
       </NavigationContainer>
     </AuthContext.Provider>
   );

@@ -9,7 +9,7 @@ import { scale, moderateScale, verticalScale } from "../config/scaling";
 import colors from "../config/colors";
 import screen from "../config/screen";
 
-const GetUserInfoScreen = ({ navigation }) => {
+const AddChildScreen = ({ navigation }) => {
   const { signIn } = React.useContext(AuthContext);
 
   let dayArr = [];
@@ -87,7 +87,7 @@ const GetUserInfoScreen = ({ navigation }) => {
       <View style={styles.btnContainer}>
         <TouchableOpacity
           style={screen.buttonContainer}
-          onPress={() => signIn()}
+          onPress={() => navigation.navigate("ChildrenScreen")}
         >
           <Text style={screen.buttonText}>Submit</Text>
         </TouchableOpacity>
@@ -134,4 +134,4 @@ const styles = StyleSheet.create({
     marginTop: moderateScale(40),
   },
 });
-export default GetUserInfoScreen;
+export default AddChildScreen;

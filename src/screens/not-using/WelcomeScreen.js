@@ -8,10 +8,10 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-import { AuthContext } from "../config/context";
-import { scale, moderateScale, verticalScale } from "../config/scaling";
-import colors from "../config/colors";
-import screen from "../config/screen";
+import { AuthContext } from "../../config/context";
+import { scale, moderateScale, verticalScale } from "../../config/scaling";
+import colors from "../../config/colors";
+import screen from "../../config/screen";
 
 const WelcomeScreen = ({ navigation }) => {
   const { signIn } = React.useContext(AuthContext);

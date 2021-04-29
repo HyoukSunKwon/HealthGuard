@@ -9,9 +9,9 @@ import {
 } from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
 
-import { moderateScale } from "../config/scaling";
-import colors from "../config/colors";
-import screen from "../config/screen";
+import { moderateScale } from "../../config/scaling";
+import colors from "../../config/colors";
+import screen from "../../config/screen";
 
 const EditHistoryScreen = ({ navigation }) => {
   let dayArr = [];

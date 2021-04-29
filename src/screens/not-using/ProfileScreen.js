@@ -1,10 +1,10 @@
 import React from "react";
 import { Image, StyleSheet, View, Text, SafeAreaView } from "react-native";
 
-import { AuthContext } from "../config/context";
-import { scale, moderateScale, verticalScale } from "../config/scaling";
-import screen from "../config/screen";
-import colors from "../config/colors";
+import { AuthContext } from "../../config/context";
+import { scale, moderateScale, verticalScale } from "../../config/scaling";
+import screen from "../../config/screen";
+import colors from "../../config/colors";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 const ProfileScreen = ({ navigation }) => {

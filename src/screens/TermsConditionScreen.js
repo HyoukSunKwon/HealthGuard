@@ -6,7 +6,7 @@ import { scale, moderateScale, verticalScale } from "../config/scaling";
 import colors from "../config/colors";
 
 const TermsConditionScreen = ({ navigation }) => {
-  const { TermsCondition } = React.useContext(AuthContext);
+  const { signIn } = React.useContext(AuthContext);
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.titleText}>
@@ -42,9 +42,7 @@ const TermsConditionScreen = ({ navigation }) => {
       </Text>
       <Button
         title=" I agree "
-        onPress={() =>
-          navigation.navigate("WelcomeScreen", { name: "Welcome" })
-        }
+        onPress={() => navigation.navigate("ChildrenScreen")}
       />
     </SafeAreaView>
   );

@@ -11,7 +11,7 @@ import { Ionicons } from "@expo/vector-icons";
 import colors from "../config/colors";
 import screen from "../config/screen";
 
-const HistoryScreen = ({ navigation }) => {
+const ChildrenScreen = ({ navigation }) => {
   const historyArr = [
     {
       type: "Covid-19",
@@ -73,7 +73,11 @@ const HistoryScreen = ({ navigation }) => {
             <View style={styles.container}>
               <View style={styles.listStyle}>
                 <TouchableOpacity
-                  onPress={() => navigation.navigate("EditHistoryScreen")}
+                  onPress={() =>
+                    navigation.navigate("ScheduleScreen", {
+                      name: "ScheduleScreen",
+                    })
+                  }
                 >
                   <Text style={styles.type}>{data.type}</Text>
                   <Text style={styles.date}>
@@ -93,11 +97,6 @@ const HistoryScreen = ({ navigation }) => {
                   size={30}
                   color={colors.lightBlue}
                   style={styles.arrowIcon}
-                  onPress={() =>
-                    navigation.navigate("AddHistoryScreen", {
-                      name: "Add History",
-                    })
-                  }
                 ></Ionicons>
               </View>
             </View>
@@ -115,7 +114,7 @@ const HistoryScreen = ({ navigation }) => {
         color={colors.lightBlue}
         style={styles.addIcon}
         onPress={() =>
-          navigation.navigate("AddHistoryScreen", { name: "Add History" })
+          navigation.navigate("AddChildScreen", { screen: "AddChildScreen" })
         }
       ></Ionicons>
     </View>
@@ -157,4 +156,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HistoryScreen;
+export default ChildrenScreen;
