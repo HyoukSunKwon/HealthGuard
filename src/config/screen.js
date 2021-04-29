@@ -18,10 +18,12 @@ export default {
     alignItems: "center",
     width: scale(240),
     height: verticalScale(50),
-    backgroundColor: colors.lightBlue_button,
+    backgroundColor: colors.blue,
     borderRadius: moderateScale(20),
   },
   buttonText: {
+    fontFamily: "fredokaOne-regular",
     fontSize: moderateScale(20),
+    color: colors.white,
   },
 };

@@ -7,5 +7,5 @@ export default {
   blue2: "#81B5F1",
   blueBlack: "#1F263E",
   lightBlue: "#F3F7FC",
-  lightBlue2: "A9D0FE",
+  lightBlue2: "#A9D0FE",
 };

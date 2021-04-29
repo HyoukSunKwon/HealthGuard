@@ -5,6 +5,7 @@ import { AuthContext } from "./src/config/context";
 import LoadingScreen from "./src/screens/LoadingScreen";
 import ChildrenStack from "./src/routes/ChildrenStack";
 import TermsConditionStack from "./src/routes/TermsConditionStack";
+import { useFonts } from "expo-font";
 
 export default function App() {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -33,14 +34,25 @@ export default function App() {
     }, 1000);
   }, []);
 
-  if (isLoading) {
-    return <LoadingScreen />;
+  let [fontsLoaded] = useFonts({
+    "fredokaOne-regular": require("./assets/fonts/FredokaOne-Regular.ttf"),
+    "notoSans-italic": require("./assets/fonts/NotoSans-Italic.ttf"),
+    "notoSans-regular": require("./assets/fonts/NotoSans-Regular.ttf"),
+    "notoSans-bold": require("./assets/fonts/NotoSans-Bold.ttf"),
+    "notoSans-boldItalic": require("./assets/fonts/NotoSans-BoldItalic.ttf"),
+  });
+
+  if (!fontsLoaded) {
+    if (isLoading) {
+      return <LoadingScreen />;
+    }
+  } else {
+    return (
+      <AuthContext.Provider value={authContext}>
+        <NavigationContainer>
+          {userToken ? <ChildrenStack /> : <TermsConditionStack />}
+        </NavigationContainer>
+      </AuthContext.Provider>
+    );
   }
-  return (
-    <AuthContext.Provider value={authContext}>
-      <NavigationContainer>
-        {userToken ? <ChildrenStack /> : <TermsConditionStack />}
-      </NavigationContainer>
-    </AuthContext.Provider>
-  );
 }
