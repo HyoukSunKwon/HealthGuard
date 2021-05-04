@@ -1,5 +1,7 @@
-import React from "react";
+import React, { Profiler } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
+import ChildrenScreen from "../screens/ChildrenScreen";
+import EditChildrenScreen from "../screens/EditChildrenScreen";
 
 import WelcomeScreen from "../screens/WelcomeScreen";
 // import SignIn from "../screens/not-using/SignInScreen";
@@ -7,7 +9,6 @@ import WelcomeScreen from "../screens/WelcomeScreen";
 // import ForgetPwd from "../screens/not-using/ForgetPwdScreen";
 //import User from "../screens/GetUserInfoScreen";
 //import TermsCondition from "../screens/TermsConditionScreen";
-import Children from "../screens/HistoryScreen";
 import colors from "../config/colors";
 
 const Stack = createStackNavigator();
@@ -26,9 +27,14 @@ const WelcomeStack = () => {
         options={{ title: "Welcome", headerShown: false }}
       />
       <Stack.Screen
-        name="Children"
-        component={Children}
+        name="ChildrenScreen"
+        component={ChildrenScreen}
         options={{ title: "Children" }}
+      />
+      <Stack.Screen
+        name="EditChildrenScreen"
+        component={EditChildrenScreen}
+        options={{ title: "Edit Children" }}
       />
 
       {/* <Stack.Screen
