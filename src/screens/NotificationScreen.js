@@ -3,7 +3,7 @@ import { SafeAreaView, Text, StyleSheet } from "react-native";
 
 import colors from "../config/colors";
 
-const NotificationScreen = () => {
+const NotificationScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.text}>This is notification screen</Text>
