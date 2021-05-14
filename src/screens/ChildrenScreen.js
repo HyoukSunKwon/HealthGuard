@@ -1,158 +1,126 @@
 import React from "react";
-import {
-  ScrollView,
-  TouchableOpacity,
-  StyleSheet,
-  View,
-  Text,
-} from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { Image, StyleSheet, View, Text, SafeAreaView } from "react-native";
 
-import colors from "../config/colors";
+import { AuthContext } from "../config/context";
+import { scale, moderateScale, verticalScale } from "../config/scaling";
 import screen from "../config/screen";
+import colors from "../config/colors";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import { Card } from "react-native-elements";
+import { Ionicons } from "@expo/vector-icons";
+import AddChildScreen from "./AddChildScreen";
+
+const users = [
+  {
+    id: 1,
+    name: "JasperMattews",
+    birth: "Jan 15th 2020",
+    latest: "2020-03-20",
+    avatar: "https://source.unsplash.com/user/nicoleknipes",
+  },
+  {
+    id: 2,
+    name: "JasperMattews",
+    birth: "Jan 15th 2020",
+    latest: "2020-03-20",
+    avatar: "https://source.unsplash.com/user/nicoleknipes",
+  },
+  {
+    id: 3,
+    name: "JasperMattews",
+    birth: "Jan 15th 2020",
+    latest: "2020-03-20",
+    avatar: "https://source.unsplash.com/user/nicoleknipes",
+  },
+];
 
 const ChildrenScreen = ({ navigation }) => {
-  const historyArr = [
-    {
-      type: "Covid-19",
-      day: 1,
-      month: "January",
-      year: 2021,
-      note:
-        "Next does in date: 30-Mar-2021 dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
-    },
-    {
-      type: "Covid-19",
-      day: 1,
-      month: "January",
-      year: 2021,
-      note: "Next does in date: 30-Mar-2021",
-    },
-    {
-      type: "Covid-19",
-      day: 1,
-      month: "January",
-      year: 2021,
-      note: "Next does in date: 30-Mar-2021",
-    },
-    {
-      type: "Covid-19",
-      day: 1,
-      month: "January",
-      year: 2021,
-      note: "Next does in date: 30-Mar-2021",
-    },
-    {
-      type: "Covid-19",
-      day: 1,
-      month: "January",
-      year: 2021,
-      note: "Next does in date: 30-Mar-2021",
-    },
-    {
-      type: "Covid-19",
-      day: 1,
-      month: "January",
-      year: 2021,
-      note: "Next does in date: 30-Mar-2021",
-    },
-    {
-      type: "Covid-19",
-      day: 1,
-      month: "January",
-      year: 2021,
-      note: "Next does in date: 30-Mar-2021",
-    },
-  ];
-
-  renderHistories = () => {
-    return (
-      <View>
-        {historyArr.map((data, index) => {
+  return (
+    <View style={styles.mainContainer}>
+      <View style={styles.header}>
+        {users.map((u) => {
           return (
-            <View style={styles.container}>
-              <View style={styles.listStyle}>
-                <TouchableOpacity
-                  onPress={() =>
-                    navigation.navigate("ScheduleScreen", {
-                      name: "ScheduleScreen",
-                    })
-                  }
-                >
-                  <Text style={styles.type}>{data.type}</Text>
-                  <Text style={styles.date}>
-                    <Ionicons
-                      name="calendar"
-                      size={15}
-                      color={colors.darkGrey}
-                    ></Ionicons>
-                    {data.day} {data.month}, {data.year}
-                  </Text>
-                  <Text numberOfLines={1} style={styles.note}>
-                    {data.note}
-                  </Text>
-                </TouchableOpacity>
-                <Ionicons
-                  name="ios-arrow-forward"
-                  size={30}
-                  color={colors.lightBlue}
-                  style={styles.arrowIcon}
-                ></Ionicons>
+            <View key={u.id}>
+              <View style={styles.container}>
+                {/* <Image source={{ uri:u.avatar }} /> */}
+                <Image
+                  style={styles.image}
+                  source={require("../../assets/icons/logo.png")}
+                />
+                <View style={styles.body}>
+                  <Text style={styles.name}>{u.name}</Text>
+                  <Text style={styles.birth}>BIRTH: {u.birth}</Text>
+                  <Text style={styles.birth}>LATEST: {u.latest}</Text>
+                </View>
               </View>
             </View>
           );
         })}
       </View>
-    );
-  };
-  return (
-    <View style={screen.container}>
-      <ScrollView>{renderHistories()}</ScrollView>
-      <Ionicons
-        name="ios-add-circle"
-        size={90}
-        color={colors.lightBlue}
-        style={styles.addIcon}
-        onPress={() =>
-          navigation.navigate("AddChildScreen", { screen: "AddChildScreen" })
-        }
-      ></Ionicons>
+      <View style={styles.foot}>
+        <TouchableOpacity onPress={() => navigation.navigate("AddChildScreen")}>
+          <Image
+            style={styles.addIcon}
+            source={require("../../assets/icons/add-profile.png")}
+          ></Image>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    width: "95%",
-    marginLeft: "5%",
-    marginTop: "2%",
-    paddingBottom: "2%",
-    borderBottomColor: colors.lightBlue_button,
-    borderBottomWidth: 1,
-  },
-  listStyle: { paddingRight: "12%" },
-  type: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: colors.lightBlue,
-  },
-  date: {
-    fontSize: 15,
-  },
-  note: { fontSize: 14 },
-  arrowIcon: {
+  mainContainer: {
     flex: 1,
-    alignItems: "center",
-    position: "absolute",
-    marginTop: "6%",
-    right: 0,
+  },
+  header: {
+    flex: 0.8,
+  },
+  foot: {
+    flex: 0.2,
+  },
+  container: {
+    height: moderateScale(96),
+    backgroundColor: colors.white,
+    flexDirection: "row",
+    marginBottom: scale(10),
+  },
+  name: {
+    fontFamily: "notoSans-regular",
+    fontSize: moderateScale(16),
+    fontWeight: "bold",
+    lineHeight: moderateScale(22),
+    margin: scale(5),
+  },
+  birth: {
+    fontFamily: "notoSans-regular",
+    fontSize: moderateScale(12),
+    color: "#1F263E",
+    lineHeight: moderateScale(16.34),
+    margin: 5,
+  },
+  image: {
+    flex: 1,
+    resizeMode: "center",
+    height: moderateScale(70),
+    width: moderateScale(70),
+    margin: scale(10),
+    justifyContent: "space-around",
+    borderRadius: 400 / 2,
+  },
+  body: {
+    flex: 2,
+    justifyContent: "center",
+  },
+  smallIcon: {
+    flexDirection: "column",
+    flex: 1,
   },
   addIcon: {
-    flex: 1,
-    position: "absolute",
     alignSelf: "flex-end",
-    bottom: 0,
-    right: 0,
+    width: moderateScale(70),
+    height: moderateScale(70),
+    marginRight: moderateScale(23),
   },
 });
 
