@@ -6,40 +6,69 @@ import colors from "../config/colors";
 import { Ionicons } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
+import TableHeader from "../component/TableHeader";
+import TableItem from "../component/TableItem";
+import ScheduleBlueLine from "../component/ScheduleBlueLine";
+
 const ScheduleScreen = ({ navigation }) => {
   const [isSchedule, setIsSchedule] = React.useState(true);
 
-  const scheduleArr = [
-    { status: "Upcoming", vaccineName: "vaccine1", scheduleDate: "2021-04-10" },
-    { status: "Upcoming", vaccineName: "vaccine2", scheduleDate: "2021-04-10" },
-    { status: "Upcoming", vaccineName: "vaccine3", scheduleDate: "2021-04-10" },
-    { status: "Upcoming", vaccineName: "vaccine4", scheduleDate: "2021-04-10" },
-  ];
-
-  const completedArr = [
-    { status: "Complete", vaccineName: "vaccine5", scheduleDate: "2021-04-10" },
-    { status: "Complete", vaccineName: "vaccine6", scheduleDate: "2021-04-10" },
-    { status: "Complete", vaccineName: "vaccine7", scheduleDate: "2021-04-10" },
-    { status: "Complete", vaccineName: "vaccine8", scheduleDate: "2021-04-10" },
+  const vaccineArr = [
+    {
+      status: "Upcoming",
+      vaccineName: "vaccine1",
+      scheduleDate: "2021-04-10",
+      shotDate: "",
+    },
+    {
+      status: "Upcoming",
+      vaccineName: "vaccine2",
+      scheduleDate: "2021-04-10",
+      shotDate: "",
+    },
+    {
+      status: "Upcoming",
+      vaccineName: "vaccine3",
+      scheduleDate: "2021-04-10",
+      shotDate: "",
+    },
+    {
+      status: "Upcoming",
+      vaccineName: "vaccine4",
+      scheduleDate: "2021-04-10",
+      shotDate: "",
+    },
+    {
+      status: "Complete",
+      vaccineName: "vaccine5",
+      scheduleDate: "2021-04-10",
+      shotDate: "2021-05-10",
+    },
+    {
+      status: "Complete",
+      vaccineName: "vaccine6",
+      scheduleDate: "2021-04-10",
+      shotDate: "2021-05-10",
+    },
+    {
+      status: "Complete",
+      vaccineName: "vaccine7",
+      scheduleDate: "2021-04-10",
+      shotDate: "2021-05-10",
+    },
+    {
+      status: "Complete",
+      vaccineName: "vaccine8",
+      scheduleDate: "2021-04-10",
+      shotDate: "2021-05-10",
+    },
   ];
 
   renderLine = () => {
     if (isSchedule) {
-      return (
-        <View style={styles.row}>
-          <View style={[styles.lightBlueLine, { width: scale(35) }]} />
-          <View style={[styles.blueLine, { width: scale(80) }]} />
-          <View style={[styles.lightBlueLine, { width: scale(185) }]} />
-        </View>
-      );
+      return <ScheduleBlueLine width1={35} width2={80} width3={185} />;
     } else {
-      return (
-        <View style={styles.row}>
-          <View style={[styles.lightBlueLine, { width: scale(183) }]} />
-          <View style={[styles.blueLine, { width: scale(85) }]} />
-          <View style={[styles.lightBlueLine, { width: scale(32) }]} />
-        </View>
-      );
+      return <ScheduleBlueLine width1={183} width2={86} width3={31} />;
     }
   };
 
@@ -47,55 +76,39 @@ const ScheduleScreen = ({ navigation }) => {
     if (isSchedule) {
       return (
         <View>
-          {scheduleArr.map((data, index) => {
-            return (
-              <View key={index}>
-                <View style={styles.tableContentContainer}>
-                  <Text
-                    style={[styles.tableContentText, styles.checkContainer]}
-                  >
-                    {data.status}
-                  </Text>
-                  <Text
-                    style={[styles.tableContentText, styles.vaccineContainer]}
-                  >
-                    {data.vaccineName}
-                  </Text>
-                  <Text style={[styles.tableContentText, styles.dateContainer]}>
-                    {data.scheduleDate}
-                  </Text>
-                </View>
-                <View style={[styles.lightBlueLine, { width: scale(300) }]} />
-              </View>
-            );
-          })}
+          {vaccineArr
+            .filter(function (item) {
+              return item.status == "Upcoming";
+            })
+            .map((data, index) => {
+              return (
+                <TableItem
+                  key={index}
+                  status={data.status}
+                  vaccineName={data.vaccineName}
+                  date={data.scheduleDate}
+                />
+              );
+            })}
         </View>
       );
     } else {
       return (
         <View>
-          {completedArr.map((data, index) => {
-            return (
-              <View key={index}>
-                <View style={styles.tableContentContainer}>
-                  <Text
-                    style={[styles.tableContentText, styles.checkContainer]}
-                  >
-                    {data.status}
-                  </Text>
-                  <Text
-                    style={[styles.tableContentText, styles.vaccineContainer]}
-                  >
-                    {data.vaccineName}
-                  </Text>
-                  <Text style={[styles.tableContentText, styles.dateContainer]}>
-                    {data.scheduleDate}
-                  </Text>
-                </View>
-                <View style={[styles.lightBlueLine, { width: scale(300) }]} />
-              </View>
-            );
-          })}
+          {vaccineArr
+            .filter(function (item) {
+              return item.status == "Complete";
+            })
+            .map((data, index) => {
+              return (
+                <TableItem
+                  key={index}
+                  status={data.status}
+                  vaccineName={data.vaccineName}
+                  date={data.shotDate}
+                />
+              );
+            })}
         </View>
       );
     }
@@ -127,7 +140,7 @@ const ScheduleScreen = ({ navigation }) => {
                 <Ionicons
                   name="calendar"
                   size={moderateScale(13)}
-                  color={colors.blueBlack}
+                  color={colors.black}
                 ></Ionicons>
                 {" JAN 15, 2020"}
               </Text>
@@ -135,7 +148,7 @@ const ScheduleScreen = ({ navigation }) => {
                 <Ionicons
                   name="eyedrop-outline"
                   size={moderateScale(13)}
-                  color={colors.blueBlack}
+                  color={colors.black}
                 ></Ionicons>
                 {" Last shot | 2021-03-20"}
               </Text>
@@ -177,19 +190,7 @@ const ScheduleScreen = ({ navigation }) => {
           </TouchableOpacity>
         </View>
         <View>{renderLine()}</View>
-        <View style={[styles.row, styles.tableHeader]}>
-          <Text style={[styles.tableHeaderText, styles.checkHeaderContainer]}>
-            CHECK
-          </Text>
-          <Text style={styles.tableHeaderText}>|</Text>
-          <Text style={[styles.tableHeaderText, styles.vaccineHeaderContainer]}>
-            VACCINE
-          </Text>
-          <Text style={styles.tableHeaderText}>|</Text>
-          <Text style={[styles.tableHeaderText, styles.dateHeaderContainer]}>
-            DATE
-          </Text>
-        </View>
+        <TableHeader />
         {renderLists()}
       </View>
     </SafeAreaView>
@@ -245,7 +246,7 @@ const styles = StyleSheet.create({
     borderRadius: moderateScale(50),
   },
   profileInfoText: {
-    color: colors.blueBlack,
+    color: colors.black,
   },
   scheduleContainer: {
     alignSelf: "center",
@@ -264,61 +265,7 @@ const styles = StyleSheet.create({
     color: colors.blue,
   },
   deselectStyle: {
-    color: colors.lightBlue2,
-  },
-  lightBlueLine: {
-    borderBottomColor: colors.lightBlue2,
-    alignSelf: "center",
-    borderBottomWidth: 1,
-  },
-  blueLine: {
-    borderBottomColor: colors.blue,
-    borderBottomWidth: 5,
-    borderRadius: moderateScale(10),
-  },
-  tableHeader: {
-    alignItems: "center",
-    marginTop: verticalScale(13),
-    backgroundColor: colors.lightBlue,
-    borderRadius: moderateScale(10),
-    width: scale(300),
-    height: verticalScale(23),
-  },
-  tableHeaderText: {
-    textAlign: "center",
-    fontFamily: "notoSans-bold",
     color: colors.blue2,
-    fontSize: moderateScale(9),
-  },
-  tableContentContainer: {
-    marginTop: verticalScale(10),
-    flexDirection: "row",
-    width: scale(300),
-    height: verticalScale(23.5),
-  },
-  tableContentText: {
-    fontFamily: "notoSans-regular",
-    color: colors.blueBlack,
-    textAlign: "center",
-    fontSize: moderateScale(12),
-  },
-  checkHeaderContainer: {
-    width: scale(80),
-  },
-  vaccineHeaderContainer: {
-    width: scale(130),
-  },
-  dateHeaderContainer: {
-    width: scale(80),
-  },
-  checkContainer: {
-    width: scale(85),
-  },
-  vaccineContainer: {
-    width: scale(130),
-  },
-  dateContainer: {
-    width: scale(85),
   },
 });
 
