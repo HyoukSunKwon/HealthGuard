@@ -16,14 +16,24 @@ export default {
     justifyContent: "center",
     alignSelf: "center",
     alignItems: "center",
-    width: scale(240),
-    height: verticalScale(50),
+    width: scale(200),
+    height: verticalScale(40),
     backgroundColor: colors.blue,
-    borderRadius: moderateScale(20),
+    borderRadius: moderateScale(30),
   },
   buttonText: {
     fontFamily: "fredokaOne-regular",
     fontSize: moderateScale(20),
     color: colors.white,
+  },
+  subTitleText: {
+    fontFamily: "fredokaOne-regular",
+    fontSize: moderateScale(24),
+    color: colors.blue,
+  },
+  titleText: {
+    fontFamily: "fredokaOne-regular",
+    fontSize: moderateScale(32),
+    color: colors.blue,
   },
 };
