@@ -5,6 +5,7 @@ import { scale, moderateScale, verticalScale } from "../config/scaling";
 import colors from "../config/colors";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import screen from "../config/screen";
+import font from "../config/context";
 
 const users = [
   {
@@ -53,14 +54,14 @@ const EditChildrenScreen = ({ navigation }) => {
                       style={styles.lineIcon}
                       source={require("../../assets/icons/calendar.png")}
                     />
-                    <Text style={styles.birth}>BIRTH: {u.birth}</Text>
+                    <Text style={font.body}>BIRTH: {u.birth}</Text>
                   </View>
                   <View style={styles.lineContainer}>
                     <Image
                       style={styles.lineIcon}
                       source={require("../../assets/icons/injection.png")}
                     />
-                    <Text style={styles.birth}>LATEST: {u.latest}</Text>
+                    <Text style={font.body}>LATEST: {u.latest}</Text>
                   </View>
                 </View>
                 <View style={styles.smallIcon}>
@@ -122,13 +123,13 @@ const styles = StyleSheet.create({
   lineContainer: {
     flexDirection: "row",
   },
-  birth: {
-    fontFamily: "notoSans-regular",
-    fontSize: moderateScale(12),
-    color: "#1F263E",
-    lineHeight: moderateScale(16.34),
-    margin: scale(5),
-  },
+  // birth: {
+  //   fontFamily: "notoSans-regular",
+  //   fontSize: moderateScale(12),
+  //   color: "#1F263E",
+  //   lineHeight: moderateScale(16.34),
+  //   margin: scale(5),
+  // },
   image: {
     flex: 1,
     resizeMode: "center",
