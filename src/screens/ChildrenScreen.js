@@ -3,6 +3,7 @@ import { Image, StyleSheet, View, Text, SafeAreaView } from "react-native";
 
 import { scale, moderateScale, verticalScale } from "../config/scaling";
 import colors from "../config/colors";
+import font from "../config/context";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 const users = [
@@ -49,14 +50,14 @@ const ChildrenScreen = ({ navigation }) => {
                       style={styles.icon}
                       source={require("../../assets/icons/calendar.png")}
                     />
-                    <Text style={styles.birth}>BIRTH: {u.birth}</Text>
+                    <Text style={font.body}>BIRTH: {u.birth}</Text>
                   </View>
                   <View style={styles.lineContainer}>
                     <Image
                       style={styles.icon}
                       source={require("../../assets/icons/injection.png")}
                     />
-                    <Text style={styles.birth}>LATEST: {u.latest}</Text>
+                    <Text style={font.body}>LATEST: {u.latest}</Text>
                   </View>
                 </View>
               </View>
@@ -101,6 +102,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     lineHeight: moderateScale(22),
     margin: scale(5),
+    color: colors.black,
   },
   birth: {
     fontFamily: "notoSans-regular",
