@@ -13,14 +13,17 @@ import NotificationScreen from "../screens/NotificationScreen";
 import EditProfileScreen from "../screens/EditProfileScreen";
 
 import colors from "../config/colors";
-import { moderateScale } from "../config/scaling";
+import { verticalScale, moderateScale, scale } from "../config/scaling";
 
 const MyCustomHeaderBackImage = () => (
   <Image
     source={require("../../assets/icons/back.png")}
     style={{
-      width: moderateScale(10),
-      height: moderateScale(15),
+      marginLeft: scale(16),
+      marginTop: verticalScale(8),
+      width: scale(11),
+      height: verticalScale(20),
+      resizeMode: "stretch",
       tintColor: colors.blue,
     }}
   />

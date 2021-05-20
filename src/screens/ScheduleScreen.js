@@ -118,51 +118,44 @@ const ScheduleScreen = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <View style={styles.profileGreyContainer}>
         <View style={styles.profileContainer}>
-          <View style={styles.row}>
-            <View style={styles.nameContainer}>
-              <Text style={styles.nameText}>Jasper Matthews</Text>
-            </View>
-
-            <TouchableOpacity
-              onPress={() => navigation.navigate("ChildrenScreen")}
-            >
-              <Text style={[styles.nameText, styles.backButton]}>{"<"}</Text>
-            </TouchableOpacity>
-          </View>
-
           <View style={[styles.row, styles.profileInfoContainer]}>
             <Image
               style={styles.profileImage}
               source={require("../../assets/profile/about-us-1.jpg")}
             ></Image>
             <View style={styles.profileTextInfoContainer}>
-              <Text style={[styles.profileInfoText, { fontWeight: "bold" }]}>
-                <Ionicons
-                  name="calendar"
-                  size={moderateScale(13)}
-                  color={colors.black}
-                ></Ionicons>
-                {" JAN 15, 2020"}
-              </Text>
-              <Text style={styles.profileInfoText}>
-                <Ionicons
-                  name="eyedrop-outline"
-                  size={moderateScale(13)}
-                  color={colors.black}
-                ></Ionicons>
-                {" Last shot | 2021-03-20"}
-              </Text>
-              <Text
-                numberOfLines={2}
-                style={[
-                  styles.profileInfoText,
-                  { paddingTop: moderateScale(3) },
-                ]}
-              >
-                Detail will be here maybe users type it on he page of profile
-                added
-              </Text>
+              <View style={styles.nameContainer}>
+                <Text style={styles.nameText}>Jasper Matthews</Text>
+              </View>
+
+              <View style={styles.profileTextInBetween}>
+                <Text style={[styles.profileInfoText]}>
+                  <Image
+                    style={styles.image}
+                    source={require("../../assets/icons/calendar.png")}
+                  ></Image>
+                  {"   JAN 15, 2020"}
+                </Text>
+              </View>
+              <View style={styles.profileTextInBetween}>
+                <Text style={styles.profileInfoText}>
+                  <Image
+                    style={styles.image}
+                    source={require("../../assets/icons/injection.png")}
+                  />
+                  {"   Last shot | 2021-03-20"}
+                </Text>
+              </View>
             </View>
+          </View>
+          <View style={styles.profileTextInBetween}>
+            <Text
+              numberOfLines={2}
+              style={[styles.profileInfoText, { paddingTop: moderateScale(3) }]}
+            >
+              Detail will be here maybe users type it on he page of profile
+              added
+            </Text>
           </View>
         </View>
       </View>
@@ -199,7 +192,6 @@ const ScheduleScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: verticalScale(28),
     backgroundColor: colors.white,
     flex: 1,
   },
@@ -209,7 +201,6 @@ const styles = StyleSheet.create({
     width: scale(350),
   },
   profileContainer: {
-    marginTop: verticalScale(40),
     width: scale(300),
     height: verticalScale(135),
     alignSelf: "center",
@@ -220,7 +211,7 @@ const styles = StyleSheet.create({
   nameText: {
     fontFamily: "fredokaOne-regular",
     color: colors.blue,
-    fontSize: moderateScale(18),
+    fontSize: moderateScale(21),
   },
   backButton: {
     textAlign: "right",
@@ -229,25 +220,30 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   profileInfoContainer: {
-    paddingTop: verticalScale(19),
+    paddingTop: verticalScale(15),
     width: scale(300),
     height: verticalScale(115),
     alignSelf: "center",
   },
   profileTextInfoContainer: {
-    paddingLeft: scale(14),
+    paddingLeft: scale(16),
     width: scale(234),
     fontFamily: "notoSans-Regular",
   },
   profileImage: {
     marginTop: verticalScale(3),
-    height: scale(66),
-    width: scale(66),
+    height: scale(73),
+    width: scale(73),
     borderRadius: moderateScale(50),
   },
   profileInfoText: {
     color: colors.black,
+    fontSize: moderateScale(14),
   },
+  profileTextInBetween: {
+    marginTop: verticalScale(7),
+  },
+  profileDetailContainer: {},
   scheduleContainer: {
     alignSelf: "center",
     width: scale(300),
@@ -266,6 +262,11 @@ const styles = StyleSheet.create({
   },
   deselectStyle: {
     color: colors.blue2,
+  },
+  image: {
+    height: scale(11.5),
+    width: scale(11.5),
+    resizeMode: "stretch",
   },
 });
 
