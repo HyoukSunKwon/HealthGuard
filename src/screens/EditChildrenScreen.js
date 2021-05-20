@@ -1,12 +1,10 @@
 import React from "react";
 import { Image, StyleSheet, View, Text, SafeAreaView } from "react-native";
 
-import { AuthContext } from "../config/context";
 import { scale, moderateScale, verticalScale } from "../config/scaling";
-import screen from "../config/screen";
 import colors from "../config/colors";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { color } from "react-native-reanimated";
+import screen from "../config/screen";
 
 const users = [
   {
@@ -50,8 +48,20 @@ const EditChildrenScreen = ({ navigation }) => {
                 />
                 <View style={styles.body}>
                   <Text style={styles.name}>{u.name}</Text>
-                  <Text style={styles.birth}>BIRTH: {u.birth}</Text>
-                  <Text style={styles.birth}>LATEST: {u.latest}</Text>
+                  <View style={styles.lineContainer}>
+                    <Image
+                      style={styles.lineIcon}
+                      source={require("../../assets/icons/calendar.png")}
+                    />
+                    <Text style={styles.birth}>BIRTH: {u.birth}</Text>
+                  </View>
+                  <View style={styles.lineContainer}>
+                    <Image
+                      style={styles.lineIcon}
+                      source={require("../../assets/icons/injection.png")}
+                    />
+                    <Text style={styles.birth}>LATEST: {u.latest}</Text>
+                  </View>
                 </View>
                 <View style={styles.smallIcon}>
                   <Image
@@ -68,19 +78,18 @@ const EditChildrenScreen = ({ navigation }) => {
                   </TouchableOpacity>
                 </View>
               </View>
-              {/* <View style={{ flex: 0.5 }} /> */}
             </View>
           );
         })}
       </View>
       <View style={styles.foot}>
         <TouchableOpacity
-          style={styles.done}
+          style={screen.buttonContainer}
           onPress={() =>
             navigation.navigate("ChildrenScreen", { name: "Children" })
           }
         >
-          <Text style={styles.doneText}> DONE</Text>
+          <Text style={screen.buttonText}> DONE</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -110,6 +119,9 @@ const styles = StyleSheet.create({
     lineHeight: moderateScale(22),
     margin: scale(5),
   },
+  lineContainer: {
+    flexDirection: "row",
+  },
   birth: {
     fontFamily: "notoSans-regular",
     fontSize: moderateScale(12),
@@ -125,7 +137,7 @@ const styles = StyleSheet.create({
     margin: scale(10),
     marginLeft: scale(20),
     justifyContent: "space-around",
-    borderRadius: 400 / 2,
+    borderRadius: scale(400 / 2),
   },
   body: {
     flex: 2,
@@ -134,7 +146,6 @@ const styles = StyleSheet.create({
   icon: {
     height: moderateScale(12),
     width: moderateScale(12),
-    // flex: 1,
     justifyContent: "center",
     marginTop: scale(20),
     marginBottom: scale(5),
@@ -142,44 +153,33 @@ const styles = StyleSheet.create({
   },
   smallIcon: {
     flexDirection: "column",
-    flex: 1,
+    flex: 0.6,
   },
-  done: {
-    backgroundColor: "blue",
-    width: moderateScale(199),
-    height: moderateScale(40),
-    borderRadius: 30,
-    alignSelf: "center",
-    bottom: 0,
-    left: 0,
-    right: 0,
-  },
-  doneText: {
-    fontFamily: "notoSans-regular",
-    fontSize: moderateScale(16),
-    color: "white",
-    lineHeight: 19,
-    marginTop: scale(10),
-    fontWeight: "bold",
-    alignSelf: "center",
-  },
+  // done: {
+  //   backgroundColor: "blue",
+  //   width: moderateScale(199),
+  //   height: moderateScale(40),
+  //   borderRadius: scale(30),
+  //   alignSelf: "center",
+  // },
+  // doneText: {
+  //   fontFamily: "notoSans-regular",
+  //   fontSize: moderateScale(16),
+  //   color: "white",
+  //   lineHeight: moderateScale(19),
+  //   marginTop: scale(10),
+  //   fontWeight: "bold",
+  //   alignSelf: "center",
+  // },
   dataContainer: {
     marginTop: verticalScale(60),
     textAlign: "center",
   },
-  dobGendertext: {
-    fontSize: moderateScale(20),
-    marginTop: verticalScale(25),
-  },
-  editContainer: {
-    top: verticalScale(60),
-  },
-  textField: {
-    fontSize: moderateScale(16),
-  },
-  logoContainer: {
-    top: verticalScale(40),
-    alignItems: "center",
+  lineIcon: {
+    width: moderateScale(10),
+    height: moderateScale(10),
+    marginTop: scale(8),
+    marginBottom: scale(10),
   },
 });
 

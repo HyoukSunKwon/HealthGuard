@@ -1,14 +1,9 @@
 import React from "react";
 import { Image, StyleSheet, View, Text, SafeAreaView } from "react-native";
 
-import { AuthContext } from "../config/context";
 import { scale, moderateScale, verticalScale } from "../config/scaling";
-import screen from "../config/screen";
 import colors from "../config/colors";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { Card } from "react-native-elements";
-import { Ionicons } from "@expo/vector-icons";
-import AddChildScreen from "./AddChildScreen";
 
 const users = [
   {
@@ -49,8 +44,20 @@ const ChildrenScreen = ({ navigation }) => {
                 />
                 <View style={styles.body}>
                   <Text style={styles.name}>{u.name}</Text>
-                  <Text style={styles.birth}>BIRTH: {u.birth}</Text>
-                  <Text style={styles.birth}>LATEST: {u.latest}</Text>
+                  <View style={styles.lineContainer}>
+                    <Image
+                      style={styles.icon}
+                      source={require("../../assets/icons/calendar.png")}
+                    />
+                    <Text style={styles.birth}>BIRTH: {u.birth}</Text>
+                  </View>
+                  <View style={styles.lineContainer}>
+                    <Image
+                      style={styles.icon}
+                      source={require("../../assets/icons/injection.png")}
+                    />
+                    <Text style={styles.birth}>LATEST: {u.latest}</Text>
+                  </View>
                 </View>
               </View>
             </View>
@@ -85,6 +92,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginBottom: scale(10),
   },
+  lineContainer: {
+    flexDirection: "row",
+  },
   name: {
     fontFamily: "notoSans-regular",
     fontSize: moderateScale(16),
@@ -97,7 +107,7 @@ const styles = StyleSheet.create({
     fontSize: moderateScale(12),
     color: "#1F263E",
     lineHeight: moderateScale(16.34),
-    margin: 5,
+    margin: scale(5),
   },
   image: {
     flex: 1,
@@ -106,21 +116,22 @@ const styles = StyleSheet.create({
     width: moderateScale(70),
     margin: scale(10),
     justifyContent: "space-around",
-    borderRadius: 400 / 2,
+    borderRadius: scale(400 / 2),
   },
   body: {
     flex: 2,
     justifyContent: "center",
-  },
-  smallIcon: {
-    flexDirection: "column",
-    flex: 1,
   },
   addIcon: {
     alignSelf: "flex-end",
     width: moderateScale(70),
     height: moderateScale(70),
     marginRight: moderateScale(23),
+  },
+  icon: {
+    width: moderateScale(10),
+    height: moderateScale(10),
+    marginTop: scale(8),
   },
 });
 
