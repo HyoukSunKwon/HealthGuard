@@ -15,6 +15,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { AuthContext } from "../config/context";
 import { scale, moderateScale, verticalScale } from "../config/scaling";
 
+import Button from "../component/Button";
 import colors from "../config/colors";
 import screen from "../config/screen";
 
@@ -201,14 +202,9 @@ const AddChildScreen = ({ navigation }) => {
             />
           </View>
         </View>
-        <View style={styles.btnContainer}>
-          <TouchableOpacity
-            style={screen.buttonContainer}
-            onPress={() => navigation.navigate("ChildrenScreen")}
-          >
-            <Text style={screen.buttonText}>ADD PROFILE</Text>
-          </TouchableOpacity>
-        </View>
+
+        <Button text="ADD PROFILE" action={() => navigation.navigate("ChildrenScreen")}/>
+   
       </ScrollView>
     </SafeAreaView>
   );
@@ -218,6 +214,7 @@ const styles = StyleSheet.create({
   additionalContainer: {
     marginTop: moderateScale(15),
     marginLeft: moderateScale(24),
+    marginBottom: verticalScale(16),
   },
   additionalText: {
     width: scale(305),

@@ -1,13 +1,14 @@
 import React from "react";
-import { StyleSheet, Button, Text, SafeAreaView, View, ScrollView } from "react-native";
+import { StyleSheet, Text, SafeAreaView, View, ScrollView } from "react-native";
 
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-
+import Button from "../component/Button";
 import { AuthContext } from "../config/context";
 import { scale, moderateScale, verticalScale } from "../config/scaling";
 import colors from "../config/colors";
 import screenConfig from "../config/screen"
+
 
 const TermsConditionScreen = ({ navigation }) => {
   const { signIn } = React.useContext(AuthContext);
@@ -53,15 +54,7 @@ const TermsConditionScreen = ({ navigation }) => {
           </ScrollView>
         </View>
 
-
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            style={screenConfig.buttonContainer}
-            onPress={() => navigation.navigate("ChildrenScreen")}
-          >
-            <Text style={screenConfig.buttonText}>LET'S START</Text>
-          </TouchableOpacity>
-        </View>
+        <Button text="LET'S START" action={() => navigation.navigate("ChildrenScreen")}/>
 
       </View>   
     </SafeAreaView>
