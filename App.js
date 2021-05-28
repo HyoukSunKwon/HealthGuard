@@ -40,6 +40,9 @@ export default function App() {
     "notoSans-regular": require("./assets/fonts/NotoSans-Regular.ttf"),
     "notoSans-bold": require("./assets/fonts/NotoSans-Bold.ttf"),
     "notoSans-boldItalic": require("./assets/fonts/NotoSans-BoldItalic.ttf"),
+    "roboto-bold": require("./assets/fonts/Roboto-Bold.ttf"),
+    "roboto-medium": require("./assets/fonts/Roboto-Medium.ttf"),
+    "roboto-regular": require("./assets/fonts/roboto-regular.ttf"),
   });
 
   if (!fontsLoaded) {
