@@ -36,4 +36,23 @@ export default {
     fontSize: moderateScale(32),
     color: colors.blue,
   },
+  // ex. title of each screen
+  titleText: {
+    fontFamily: "fredokaOne-regular",
+    color: colors.blue,
+    fontSize: moderateScale(18),
+  },
+  // ex. upcoming, completed text
+  subTitleText: {
+    fontFamily: "fredokaOne-regular",
+    color: colors.blue,
+    fontSize: moderateScale(14),
+  },
+  // ex. most of body text
+  bodyText: {
+    fontFamily: "roboto-regular",
+    color: colors.black,
+    fontSize: moderateScale(12),
+    margin: scale(5),
+  },
 };
