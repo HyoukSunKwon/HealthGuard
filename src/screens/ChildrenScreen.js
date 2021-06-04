@@ -1,5 +1,12 @@
 import React from "react";
-import { Image, StyleSheet, View, Text, SafeAreaView } from "react-native";
+import {
+  Image,
+  StyleSheet,
+  ScrollView,
+  View,
+  Text,
+  SafeAreaView,
+} from "react-native";
 
 import { scale, moderateScale, verticalScale } from "../config/scaling";
 import colors from "../config/colors";
@@ -28,47 +35,56 @@ const users = [
     latest: "2020-03-20",
     avatar: "https://source.unsplash.com/user/nicoleknipes",
   },
+  {
+    id: 4,
+    name: "JasperMattews",
+    birth: "Jan 15th 2020",
+    latest: "2020-03-20",
+    avatar: "https://source.unsplash.com/user/nicoleknipes",
+  },
 ];
 
 const ChildrenScreen = ({ navigation }) => {
   return (
     <View style={styles.mainContainer}>
-      <View style={styles.header}>
-        {users.map((u) => {
-          return (
-            <View key={u.id}>
-              <TouchableOpacity
-                onPress={() => navigation.navigate("ScheduleScreen")}
-              >
-                <View style={styles.container}>
-                  {/* <Image source={{ uri:u.avatar }} /> */}
-                  <Image
-                    style={styles.image}
-                    source={require("../../assets/icons/logo.png")}
-                  />
-                  <View style={styles.body}>
-                    <Text style={styles.name}>{u.name}</Text>
-                    <View style={styles.lineContainer}>
-                      <Image
-                        style={styles.icon}
-                        source={require("../../assets/icons/calendar.png")}
-                      />
-                      <Text style={styles.birth}>BIRTH: {u.birth}</Text>
-                    </View>
-                    <View style={styles.lineContainer}>
-                      <Image
-                        style={styles.icon}
-                        source={require("../../assets/icons/injection.png")}
-                      />
-                      <Text style={styles.birth}>LATEST: {u.latest}</Text>
+      <ScrollView style={styles.scrollView}>
+        <View style={styles.header}>
+          {users.map((u) => {
+            return (
+              <View key={u.id}>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("ScheduleScreen")}
+                >
+                  <View style={styles.container}>
+                    {/* <Image source={{ uri:u.avatar }} /> */}
+                    <Image
+                      style={styles.image}
+                      source={require("../../assets/icons/logo.png")}
+                    />
+                    <View style={styles.body}>
+                      <Text style={styles.name}>{u.name}</Text>
+                      <View style={styles.lineContainer}>
+                        <Image
+                          style={styles.icon}
+                          source={require("../../assets/icons/calendar.png")}
+                        />
+                        <Text style={styles.birth}>BIRTH: {u.birth}</Text>
+                      </View>
+                      <View style={styles.lineContainer}>
+                        <Image
+                          style={styles.icon}
+                          source={require("../../assets/icons/injection.png")}
+                        />
+                        <Text style={styles.birth}>LATEST: {u.latest}</Text>
+                      </View>
                     </View>
                   </View>
-                </View>
-              </TouchableOpacity>
-            </View>
-          );
-        })}
-      </View>
+                </TouchableOpacity>
+              </View>
+            );
+          })}
+        </View>
+      </ScrollView>
       <View style={styles.foot}>
         <TouchableOpacity onPress={() => navigation.navigate("AddChildScreen")}>
           <Image
@@ -90,6 +106,9 @@ const styles = StyleSheet.create({
   },
   foot: {
     flex: 0.2,
+  },
+  scrollView: {
+    flex: 0.8,
   },
   container: {
     height: moderateScale(96),
@@ -133,6 +152,7 @@ const styles = StyleSheet.create({
     width: scale(70),
     height: verticalScale(70),
     marginRight: moderateScale(23),
+    resizeMode: "stretch",
   },
   icon: {
     marginTop: verticalScale(8),

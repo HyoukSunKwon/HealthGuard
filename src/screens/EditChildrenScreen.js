@@ -1,5 +1,12 @@
 import React from "react";
-import { Image, StyleSheet, View, Text, SafeAreaView } from "react-native";
+import {
+  Image,
+  StyleSheet,
+  View,
+  Text,
+  ScrollView,
+  SafeAreaView,
+} from "react-native";
 
 import { scale, moderateScale, verticalScale } from "../config/scaling";
 import colors from "../config/colors";
@@ -32,57 +39,67 @@ const users = [
     latest: "2020-03-20",
     avatar: "https://source.unsplash.com/user/nicoleknipes",
   },
+  {
+    id: 4,
+    image: "../../assets/icons/logo.png",
+    name: "JasperMattews",
+    birth: "Jan 15th 2020",
+    latest: "2020-03-20",
+    avatar: "https://source.unsplash.com/user/nicoleknipes",
+  },
 ];
 
 const EditChildrenScreen = ({ navigation }) => {
   return (
     <View style={styles.mainContainer}>
-      <View style={styles.header}>
-        {users.map((u) => {
-          return (
-            <View key={u.id}>
-              <View style={styles.container}>
-                {/* <Image source={{ uri:u.avatar }} /> */}
-                <Image
-                  style={styles.image}
-                  source={require("../../assets/icons/logo.png")}
-                />
-                <View style={styles.body}>
-                  <Text style={styles.name}>{u.name}</Text>
-                  <View style={styles.lineContainer}>
-                    <Image
-                      style={styles.lineIcon}
-                      source={require("../../assets/icons/calendar.png")}
-                    />
-                    <Text style={styles.birth}>BIRTH: {u.birth}</Text>
-                  </View>
-                  <View style={styles.lineContainer}>
-                    <Image
-                      style={styles.lineIcon}
-                      source={require("../../assets/icons/injection.png")}
-                    />
-                    <Text style={styles.birth}>LATEST: {u.latest}</Text>
-                  </View>
-                </View>
-                <View style={styles.smallIcon}>
+      <ScrollView style={styles.scrollView}>
+        <View style={styles.header}>
+          {users.map((u) => {
+            return (
+              <View key={u.id}>
+                <View style={styles.container}>
+                  {/* <Image source={{ uri:u.avatar }} /> */}
                   <Image
-                    style={styles.icon}
-                    source={require("../../assets/icons/delete.png")}
+                    style={styles.image}
+                    source={require("../../assets/icons/logo.png")}
                   />
-                  <TouchableOpacity
-                    onPress={() => navigation.navigate("EditProfileScreen")}
-                  >
+                  <View style={styles.body}>
+                    <Text style={styles.name}>{u.name}</Text>
+                    <View style={styles.lineContainer}>
+                      <Image
+                        style={styles.lineIcon}
+                        source={require("../../assets/icons/calendar.png")}
+                      />
+                      <Text style={styles.birth}>BIRTH: {u.birth}</Text>
+                    </View>
+                    <View style={styles.lineContainer}>
+                      <Image
+                        style={styles.lineIcon}
+                        source={require("../../assets/icons/injection.png")}
+                      />
+                      <Text style={styles.birth}>LATEST: {u.latest}</Text>
+                    </View>
+                  </View>
+                  <View style={styles.smallIcon}>
                     <Image
                       style={styles.icon}
-                      source={require("../../assets/icons/edit.png")}
+                      source={require("../../assets/icons/delete.png")}
                     />
-                  </TouchableOpacity>
+                    <TouchableOpacity
+                      onPress={() => navigation.navigate("EditProfileScreen")}
+                    >
+                      <Image
+                        style={styles.icon}
+                        source={require("../../assets/icons/edit.png")}
+                      />
+                    </TouchableOpacity>
+                  </View>
                 </View>
               </View>
-            </View>
-          );
-        })}
-      </View>
+            );
+          })}
+        </View>
+      </ScrollView>
       <View style={styles.foot}>
         <TouchableOpacity
           style={screen.buttonContainer}
@@ -106,6 +123,9 @@ const styles = StyleSheet.create({
   },
   foot: {
     flex: 0.2,
+  },
+  scrollView: {
+    flex: 0.8,
   },
   container: {
     height: verticalScale(96),
