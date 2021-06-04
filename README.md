@@ -1,6 +1,6 @@
 # HealthGuard
 Health Guard is a mobile application for managing children's vaccination history. </br>
-User can manage their chilren's vaccine appointment date and view vaccination date.
+User can manage their chilren's vaccine appointment date and view vaccination date. </br>
 
 ## Installation
 ```
