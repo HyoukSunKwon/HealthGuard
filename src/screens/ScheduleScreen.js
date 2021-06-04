@@ -1,66 +1,64 @@
 import React from "react";
-import { View, StyleSheet, Text, SafeAreaView, Image } from "react-native";
+import { ScrollView, View, StyleSheet, Text, Image } from "react-native";
 
 import { scale, moderateScale, verticalScale } from "../config/scaling";
 import colors from "../config/colors";
-import { Ionicons } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-import TableHeader from "../component/TableHeader";
-import TableItem from "../component/TableItem";
 import ScheduleBlueLine from "../component/ScheduleBlueLine";
+import VaccineItem from "../component/VaccineItem";
 
 const ScheduleScreen = ({ navigation }) => {
   const [isSchedule, setIsSchedule] = React.useState(true);
 
   const vaccineArr = [
     {
-      status: "Upcoming",
+      status: "-",
       vaccineName: "vaccine1",
-      scheduleDate: "2021-04-10",
+      scheduleDate: "-",
       shotDate: "",
     },
     {
       status: "Upcoming",
       vaccineName: "vaccine2",
-      scheduleDate: "2021-04-10",
+      scheduleDate: "May 15, 2021",
       shotDate: "",
     },
     {
-      status: "Upcoming",
+      status: "Overdue",
       vaccineName: "vaccine3",
-      scheduleDate: "2021-04-10",
+      scheduleDate: "May 5, 2021",
       shotDate: "",
     },
     {
       status: "Upcoming",
       vaccineName: "vaccine4",
-      scheduleDate: "2021-04-10",
+      scheduleDate: "May 15, 2021",
       shotDate: "",
     },
     {
       status: "Complete",
       vaccineName: "vaccine5",
-      scheduleDate: "2021-04-10",
-      shotDate: "2021-05-10",
+      scheduleDate: "May 15, 2021",
+      shotDate: "May 19, 2021",
     },
     {
       status: "Complete",
       vaccineName: "vaccine6",
-      scheduleDate: "2021-04-10",
-      shotDate: "2021-05-10",
+      scheduleDate: "May 15, 2021",
+      shotDate: "May 19, 2021",
     },
     {
       status: "Complete",
       vaccineName: "vaccine7",
-      scheduleDate: "2021-04-10",
-      shotDate: "2021-05-10",
+      scheduleDate: "May 15, 2021",
+      shotDate: "May 19, 2021",
     },
     {
       status: "Complete",
       vaccineName: "vaccine8",
-      scheduleDate: "2021-04-10",
-      shotDate: "2021-05-10",
+      scheduleDate: "May 15, 2021",
+      shotDate: "May 19, 2021",
     },
   ];
 
@@ -72,22 +70,23 @@ const ScheduleScreen = ({ navigation }) => {
     }
   };
 
-  renderLists = () => {
+  renderItems = () => {
     if (isSchedule) {
       return (
         <View>
           {vaccineArr
             .filter(function (item) {
-              return item.status == "Upcoming";
+              return item.status !== "Complete";
             })
             .map((data, index) => {
               return (
-                <TableItem
-                  key={index}
-                  status={data.status}
-                  vaccineName={data.vaccineName}
-                  date={data.scheduleDate}
-                />
+                <View key={index}>
+                  <VaccineItem
+                    status={data.status}
+                    vaccineName={data.vaccineName}
+                    date={data.scheduleDate}
+                  />
+                </View>
               );
             })}
         </View>
@@ -97,16 +96,17 @@ const ScheduleScreen = ({ navigation }) => {
         <View>
           {vaccineArr
             .filter(function (item) {
-              return item.status == "Complete";
+              return item.status === "Complete";
             })
             .map((data, index) => {
               return (
-                <TableItem
-                  key={index}
-                  status={data.status}
-                  vaccineName={data.vaccineName}
-                  date={data.shotDate}
-                />
+                <View key={index}>
+                  <VaccineItem
+                    status={data.status}
+                    vaccineName={data.vaccineName}
+                    date={data.scheduleDate}
+                  />
+                </View>
               );
             })}
         </View>
@@ -115,7 +115,7 @@ const ScheduleScreen = ({ navigation }) => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.profileGreyContainer}>
         <View style={styles.profileContainer}>
           <View style={[styles.row, styles.profileInfoContainer]}>
@@ -183,10 +183,10 @@ const ScheduleScreen = ({ navigation }) => {
           </TouchableOpacity>
         </View>
         <View>{renderLine()}</View>
-        <TableHeader />
-        {renderLists()}
+
+        <View>{renderItems()}</View>
       </View>
-    </SafeAreaView>
+    </ScrollView>
   );
 };
 
@@ -247,7 +247,6 @@ const styles = StyleSheet.create({
   scheduleContainer: {
     alignSelf: "center",
     width: scale(300),
-    height: verticalScale(450),
   },
   titleStyle: {
     marginTop: verticalScale(23),
