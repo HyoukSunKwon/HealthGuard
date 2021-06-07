@@ -4,6 +4,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 
+import { ltext } from "../config/localization"
+
 import TermsConditionScreen from "../screens/TermsConditionScreen";
 import ChildrenScreen from "../screens/ChildrenScreen";
 import EditChildrenScreen from "../screens/EditChildrenScreen";
@@ -91,7 +93,7 @@ const TermsConditionStack = () => {
         name="ChildrenScreen"
         component={ChildrenScreen}
         options={{
-          title: "CHILDREN",
+          title: ltext("children_screen_title"),
           headerLeft: null,
           headerRight: MyCustomHeaderImage,
         }}
@@ -100,8 +102,8 @@ const TermsConditionStack = () => {
         name="EditChildrenScreen"
         component={EditChildrenScreen}
         options={{
-          title: "CHILDREN",
-          headerLeft: null,
+          title: ltext("edit_children_screen_title"),
+          headerBackImage: MyCustomHeaderBackImage,
         }}
       />
       <Stack.Screen
@@ -113,7 +115,7 @@ const TermsConditionStack = () => {
         name="AddChildScreen"
         component={AddChildScreen}
         options={{
-          title: "ADD PROFILE",
+          title: ltext("add_children_screen_title"),
           headerBackImage: MyCustomHeaderBackImage,
         }}
       />
@@ -121,7 +123,7 @@ const TermsConditionStack = () => {
         name="NotificationScreen"
         component={NotificationScreen}
         options={{
-          title: "NOTIFICATION",
+          title: ltext("notification_screen_title"),
           headerBackImage: MyCustomHeaderBackImage,
         }}
       />
@@ -129,7 +131,7 @@ const TermsConditionStack = () => {
         name="EditProfileScreen"
         component={EditProfileScreen}
         options={{
-          title: "EDIT PROFILE",
+          title: ltext("edit_profile_screen_title"),
           headerBackImage: MyCustomHeaderBackImage,
         }}
       />

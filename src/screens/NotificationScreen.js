@@ -4,6 +4,7 @@ import { StyleSheet, View, Text, Image, ScrollView } from "react-native";
 import { scale, verticalScale } from "../config/scaling";
 import colorConfig from "../config/colors";
 import screenConfig from "../config/screen";
+import { ltext } from "../config/localization"
 
 import ContentItem from "../component/Notification/ContentItem";
 
@@ -100,7 +101,7 @@ const NotificationScreen = ({ navigation }) => {
           style={styles.image}
           source={require("../../assets/icons/baby_smile_grey.png")}
         />
-        <Text style={[styles.noStatus, styles.grey]}>TAKE A REST!</Text>
+        <Text style={[styles.noStatus, styles.grey]}>{ltext("notification_no_schedule")}</Text>
       </View>
     );
   };
@@ -109,19 +110,19 @@ const NotificationScreen = ({ navigation }) => {
     <ScrollView style={screenConfig.container}>
       <View style={styles.textContainer}>
         <View style={styles.container}>
-          <Text style={[styles.status, styles.red]}>{"TODAY"}</Text>
+          <Text style={[styles.status, styles.red]}>{ltext("notification_today")}</Text>
           {statusToday()}
         </View>
       </View>
       <View style={styles.textContainer}>
         <View style={styles.container}>
-          <Text style={[styles.status, styles.blue]}>{"UPCOMING"}</Text>
+          <Text style={[styles.status, styles.blue]}>{ltext("notification_upcoming")}</Text>
           {statusUpcoming()}
         </View>
       </View>
       <View style={styles.textContainer}>
         <View style={styles.container}>
-          <Text style={[styles.status, styles.blue]}>{"OVERDUE"}</Text>
+          <Text style={[styles.status, styles.blue]}>{ltext("notification_overdue")}</Text>
           {statusOverdue()}
         </View>
       </View>

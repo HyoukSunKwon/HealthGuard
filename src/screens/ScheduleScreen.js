@@ -4,6 +4,7 @@ import { ScrollView, View, StyleSheet, Text, Image } from "react-native";
 import { scale, moderateScale, verticalScale } from "../config/scaling";
 import colors from "../config/colors";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { ltext } from "../config/localization"
 
 import ScheduleBlueLine from "../component/ScheduleBlueLine";
 import VaccineItem from "../component/VaccineItem";
@@ -143,7 +144,7 @@ const ScheduleScreen = ({ navigation }) => {
                     style={styles.image}
                     source={require("../../assets/icons/injection.png")}
                   />
-                  {"   Last shot | 2021-03-20"}
+                  {`   ${ltext("last_shot")} | 2021-03-20`}
                 </Text>
               </View>
             </View>
@@ -168,7 +169,7 @@ const ScheduleScreen = ({ navigation }) => {
                 isSchedule ? styles.selectStyle : styles.deselectStyle,
               ]}
             >
-              UPCOMING
+              {ltext("schedule_upcoming")}
             </Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => setIsSchedule(false)}>
@@ -178,7 +179,7 @@ const ScheduleScreen = ({ navigation }) => {
                 isSchedule ? styles.deselectStyle : styles.selectStyle,
               ]}
             >
-              COMPLETED
+              {ltext("schedule_completed")}
             </Text>
           </TouchableOpacity>
         </View>

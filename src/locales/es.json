@@ -1,0 +1,62 @@
+{
+    "app_name": "Salud Guardia",
+    "welcome": "Welcome to",
+    "terms_title": "Terms & Conditions",
+    "terms_text": "Thank you for using Health Guard! \n\n We're happy you're here. Please read this Terms of Service agreement carefully before accessing or using Health Guard. Because it is such an important contract between us and our users, we have tried to make it as clear as possible. \n This App provides information only and does not operate to as a diagnosis tool and it does not subtitute for professional medical advice and assistance. \n You will be provided vaccination recommendation and also you can manage your vaccination history through this App. your information such as gender and birth date will not be used anywhere except in this app for recommending vaccination. \n By clicking below, you acknowledge and agree to our use of your personal information we collect through the use of this app in the ways described in our privacy notice. \n",
+    "start": "LET'S START",
+
+    "children_screen_title": "CHILDREN",
+    "children_latest": "LATEST",
+    "children_birth": "BIRTH",
+
+    "add_children_screen_title": "ADD CHILD",
+    "edit_children_screen_title": "EDIT CHILD",
+    "choose_profile_img_title": "Choose profile image",
+    "name_field_title": "Name",
+    "firstname_field_placeholder": "First Name",
+    "lastname_field_placeholder": "Last Name",
+    "date_field_title": "Date",
+    "date_field_month": "Month",
+    "month_array" : [
+        { "label": "January", "value": "jan" },
+        { "label": "Febuary", "value": "feb" },
+        { "label": "March", "value": "mar" },
+        { "label": "April", "value": "apr" },
+        { "label": "May", "value": "may" },
+        { "label": "June", "value": "jun" },
+        { "label": "July", "value": "jul" },
+        { "label": "August", "value": "aug" },
+        { "label": "September", "value": "sep" } ,
+        { "label": "October", "value": "oct" },
+        { "label": "November", "value": "nov" },
+        { "label": "December", "value": "dec" }
+    ],
+    "date_field_day": "Day",
+    "date_field_year": "Year",
+    "gender_field_title": "Gender",
+    "gender_array" : [
+        { "label": "Male", "value": "Male" },
+        { "label": "Female", "value": "Female" },
+        { "label": "Other", "value": "Other" }
+    ],
+    "additional_field_title": "Additional Information",
+    "additional_field_placeholder": "Additional information about the child",
+    "add_child_button_text": "ADD CHILD",
+    "save_child_button_text": "SAVE CHILD",
+
+    "schedule_screen_title": "SCHEDULE",
+    "schedule_upcoming": "UPCOMING",
+    "schedule_completed": "COMPLETED",
+    "last_shot": "Last Shot",
+    "vaccine_name_field": "VACCINE",
+    "vaccine_date_field": "DATE",
+    "vaccine_status_field": "STATUS",
+
+    "notification_screen_title": "NOTIFICATION",
+    "notification_overdue": "OVERDUE",
+    "notification_upcoming": "UPCOMING",
+    "notification_today": "TODAY",
+    "notification_no_schedule": "TAKE A REST!",
+    
+    "edit_profile_screen_title": "EDIT PROFILE"
+}

@@ -3,6 +3,7 @@ import { TouchableOpacity, View, Text, StyleSheet } from "react-native";
 import colors from "../config/colors";
 import colorConfig from "../config/colors";
 import { scale, moderateScale, verticalScale } from "../config/scaling";
+import { ltext } from "../config/localization"
 
 class VaccineItem extends Component {
   render = () => {
@@ -29,21 +30,21 @@ class VaccineItem extends Component {
         <View style={styles.contentContainer}>
           <View style={styles.textLine}>
             <View style={styles.titleContainer}>
-              <Text style={styles.titleText}>VACCINE</Text>
+              <Text style={styles.titleText}>{ltext("vaccine_name_field")}</Text>
             </View>
 
             <Text style={styles.dataText}>{vaccineName}</Text>
           </View>
           <View style={styles.textLine}>
             <View style={styles.titleContainer}>
-              <Text style={styles.titleText}>DATE</Text>
+              <Text style={styles.titleText}>{ltext("vaccine_date_field")}</Text>
             </View>
 
             <Text style={styles.dataText}>{date}</Text>
           </View>
           <View style={styles.textLine}>
             <View style={styles.titleContainer}>
-              <Text style={styles.titleText}>STATUS</Text>
+              <Text style={styles.titleText}>{ltext("vaccine_status_field")}</Text>
             </View>
 
             <Text style={[styles.dataText, getColorStyle(status)]}>

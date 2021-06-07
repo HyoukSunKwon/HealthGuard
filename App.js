@@ -1,6 +1,8 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 
+import {i18nInit} from './src/config/localization';
+
 import { AuthContext } from "./src/config/context";
 import LoadingScreen from "./src/screens/LoadingScreen";
 import ChildrenStack from "./src/routes/ChildrenStack";
@@ -8,6 +10,9 @@ import TermsConditionStack from "./src/routes/TermsConditionStack";
 import { useFonts } from "expo-font";
 
 export default function App() {
+  //localization init
+  i18nInit()
+
   const [isLoading, setIsLoading] = React.useState(true);
   const [userToken, setUserToken] = React.useState(null);
 

@@ -12,6 +12,7 @@ import { scale, moderateScale, verticalScale } from "../config/scaling";
 import colors from "../config/colors";
 // import font from "../config/context";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { ltext } from "../config/localization";
 
 const users = [
   {
@@ -68,14 +69,14 @@ const ChildrenScreen = ({ navigation }) => {
                           style={styles.icon}
                           source={require("../../assets/icons/calendar.png")}
                         />
-                        <Text style={styles.birth}>BIRTH: {u.birth}</Text>
+                        <Text style={styles.birth}>{ltext("children_birth")}: {u.birth}</Text>
                       </View>
                       <View style={styles.lineContainer}>
                         <Image
                           style={styles.icon}
                           source={require("../../assets/icons/injection.png")}
                         />
-                        <Text style={styles.birth}>LATEST: {u.latest}</Text>
+                        <Text style={styles.birth}>{ltext("children_latest")}: {u.latest}</Text>
                       </View>
                     </View>
                   </View>
