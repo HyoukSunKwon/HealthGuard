@@ -27,7 +27,7 @@ const CheckTermsConditionScreen = ({ navigation }) => {
         </View>
       </View>
       <View style={styles.terms}>
-        <Text style={styles.condition}> HEALTH GUARD Terms & Condition </Text>
+        <Text style={styles.condition}> {Itext("termsCondition")} </Text>
       </View>
     </SafeAreaView>
   );

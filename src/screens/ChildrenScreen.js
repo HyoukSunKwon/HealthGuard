@@ -103,10 +103,7 @@ const ChildrenScreen = ({ navigation }) => {
           onPress={() => navigation.navigate("CheckTermsConditionScreen")}
         >
           <View style={styles.terms}>
-            <Text style={styles.condition}>
-              {" "}
-              HEALTH GUARD Terms & Condition{" "}
-            </Text>
+            <Text style={styles.condition}>{ltext("termsCondition")}</Text>
           </View>
         </TouchableOpacity>
       </View>
