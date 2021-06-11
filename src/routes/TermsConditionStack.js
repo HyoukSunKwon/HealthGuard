@@ -4,7 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 
-import { ltext } from "../config/localization"
+import { ltext } from "../config/localization";
 
 import TermsConditionScreen from "../screens/TermsConditionScreen";
 import ChildrenScreen from "../screens/ChildrenScreen";
@@ -13,6 +13,7 @@ import ScheduleScreen from "../screens/ScheduleScreen";
 import AddChildScreen from "../screens/AddChildScreen";
 import NotificationScreen from "../screens/NotificationScreen";
 import EditProfileScreen from "../screens/EditProfileScreen";
+import CheckTermsConditionScreen from "../screens/CheckTermsConditionScreen";
 
 import colors from "../config/colors";
 import { verticalScale, moderateScale, scale } from "../config/scaling";
@@ -132,6 +133,14 @@ const TermsConditionStack = () => {
         component={EditProfileScreen}
         options={{
           title: ltext("edit_profile_screen_title"),
+          headerBackImage: MyCustomHeaderBackImage,
+        }}
+      />
+      <Stack.Screen
+        name="CheckTermsConditionScreen"
+        component={CheckTermsConditionScreen}
+        options={{
+          title: "",
           headerBackImage: MyCustomHeaderBackImage,
         }}
       />

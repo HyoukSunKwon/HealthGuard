@@ -69,14 +69,18 @@ const ChildrenScreen = ({ navigation }) => {
                           style={styles.icon}
                           source={require("../../assets/icons/calendar.png")}
                         />
-                        <Text style={styles.birth}>{ltext("children_birth")}: {u.birth}</Text>
+                        <Text style={styles.birth}>
+                          {ltext("children_birth")}: {u.birth}
+                        </Text>
                       </View>
                       <View style={styles.lineContainer}>
                         <Image
                           style={styles.icon}
                           source={require("../../assets/icons/injection.png")}
                         />
-                        <Text style={styles.birth}>{ltext("children_latest")}: {u.latest}</Text>
+                        <Text style={styles.birth}>
+                          {ltext("children_latest")}: {u.latest}
+                        </Text>
                       </View>
                     </View>
                   </View>
@@ -94,6 +98,18 @@ const ChildrenScreen = ({ navigation }) => {
           ></Image>
         </TouchableOpacity>
       </View>
+      <View style={styles.foot2}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("CheckTermsConditionScreen")}
+        >
+          <View style={styles.terms}>
+            <Text style={styles.condition}>
+              {" "}
+              HEALTH GUARD Terms & Condition{" "}
+            </Text>
+          </View>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -103,10 +119,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   header: {
-    flex: 0.8,
+    flex: 0.9,
   },
   foot: {
-    flex: 0.2,
+    flex: 0.14,
+  },
+  foot2: {
+    flex: 0.1,
   },
   scrollView: {
     flex: 0.8,
@@ -161,6 +180,18 @@ const styles = StyleSheet.create({
     height: verticalScale(10),
     width: scale(10),
     resizeMode: "stretch",
+  },
+  condition: {
+    fontFamily: "roboto-regular",
+    fontSize: scale(12),
+    color: colors.grey,
+    textAlign: "center",
+    marginTop: verticalScale(10),
+  },
+  terms: {
+    height: verticalScale(40),
+    backgroundColor: colors.gray1,
+    marginBottom: verticalScale(10),
   },
 });
 
