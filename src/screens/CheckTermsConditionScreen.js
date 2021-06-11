@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   },
   titleContainer: {
     alignItems: "center",
-    marginBottom: verticalScale(10),
+    marginBottom: verticalScale(5),
   },
   cardContainer: {
     backgroundColor: colors.white,
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     marginBottom: verticalScale(10),
     borderRadius: moderateScale(16),
     width: scale(300),
-    height: verticalScale(450),
+    height: verticalScale(470),
   },
   buttonContainer: {
     marginTop: verticalScale(20),
